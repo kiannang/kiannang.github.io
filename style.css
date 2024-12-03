@@ -1,0 +1,85 @@
+body {
+    font-family: Georgia, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    background-color: #DAD7CD;
+}
+
+header {
+    background-color: #DAD7CD;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.kng {
+    margin-right: auto !important; /* Push "Home" to the far left */
+    color: #0d1e10;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: left !important;
+    margin: 0;
+    padding: 0;
+    padding-top: 60px;
+}
+
+.menu-right {
+    display: flex;
+    gap: 15px; /* Adjust spacing between menu items */
+}
+
+.menu li {
+    margin: 0 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #3A5A40;
+    font-size: 30px;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #A3B18A;
+}
+
+.introduction{
+    font-family: Georgia, sans-serif;
+    margin: 0;
+    padding-top: 10px;
+    color: #3A5A40;
+}
+
+.experience{
+    font-family: Georgia, sans-serif;
+    margin: 0;
+    padding-top: 10px;
+    color: #3A5A40;
+    text-align: left;
+
+}
+
+.contact{
+    font-family: Georgia, sans-serif;
+    margin: 0;
+    padding-top: 10px;
+    color: #3A5A40;
+}
+
+/* Style for the centered box */
+.centered-box {
+    width: 90%; /* You can adjust this to your desired width */
+    max-width: 9000px; /* Maximum width to prevent it from becoming too wide */
+    padding: 20px;
+    margin: 0 auto; /* Centers the box horizontally */
+    background-color: #DAD7CD; /* Background color of the box */
+    border: 2px solid #3A5A40; /* Border around the box */
+    border-radius: 10px; /* Rounded corners for the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow around the box */
+    text-align: center; /* Center the text inside the box */
+}
