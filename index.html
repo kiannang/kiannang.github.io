@@ -1,90 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Kianna Ng</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="style.css" type="text/css" media="all">
+
+    <title>
+        Kianna Ng
+    </title>
+    <link rel="icon" type="image/x-icon" href="favicon-goes-here.png">
+    <!-- the icon that shows up in the address bar -->
+
+    <!-- HTML Meta Tags-->
+    <meta property="og:type" content="website" />
+    <meta name="description" content="describe your site for search engines + social media links!" />
+    <meta property="og:image" content="put a link to your preview image for social media here.jpg">
+    <meta property="og:image:type" content="image/jpg">
 </head>
 
-<section id="home">
-
-</section>
-
 <body>
+
+    <div id="top"></div>
+    <div id="to-top"><a href="#top" title="back to top">^</a></div>
+
     <header>
-        <div class="header-container">
+        <h1><a class="h1" href="/">
+            Kianna Ng
+            </a>
+        </h1>
+        I don't know, but I'll learn.
+
         <nav>
-            <ul class="menu">
-                <li class="kng"><a href="#home">kianna ng</a></li>
-                
-                <div class="menu-right">
-                    <li><a href="#home">home</a></li>
-                    <li><a href="#experience">experience</a></li>
-                <li><a href="#contact">contact</a></li>
-                </div>
-            </ul>
+            <a href="/about">
+                your navigation
+            </a>
+            <a href="/comics">
+                links
+            </a>
+            <a href="/illustration">
+                go
+            </a>
+            <a href="/links">
+                here!
+            </a>
         </nav>
-    </div>
     </header>
 
-    <div class="centered-box">
-    <section id="experience">
-    <div class="introduction">
-        <h2> Hello! My name is Kianna Ng. </h2>
-        <p> I am a recent Bachelor's graduate in Computer Science and Engineering with interests in robotics and embedded systems.</p>
-    </div>
-    </section>
+    <main>
+        <h2>a very simple portfolio code template!</h2>
+        <p>
+            <a href="./">back to the blog post!</a>
+        </p>
+        <p>
+        <div class="box center">
+            <b>how to grab this code:</b>
+            <p>
+                right click on this page & select <i>view page source,</i> then copy everything that comes up!
+                paste that into your <code>index.html</code> file.
+            <p>then go to <a href="style.css">style.css</a> and copy-paste everything there into a
+                <code>style.css</code> file. edit to your heart's content.
+        </div>
+        this is some page content, in <b>bold,</b> <i>italic,</i> <u>underlined,</u> <mark>highlighted,</mark>
+        <code>code,</code> and <a href="/">link</a> varieties.
+        <p>the <code>p</code> tag denotes a paragraph, and the <code>br</code> tag will make a single line break,
+            <br>like this.
+        <p>
 
-    <div class="experience">
-        <h2>Experience</h2>
-
-        <h3>IoT4Ag Engineering Undergraduate Research Assistant</h3>
-        <p>Sep 2023 - Aug 2024</p>
+            <!-- anything written like this won't show up in the actual page, only in your code - you can use this to write notes to yourself! -->
+             
+            the code includes 5 variables for colors you can edit:
+            <span style="display:inline-block;width:10px;height:10px;background:var(--text)"></span> text, <span
+                style="display:inline-block;width:10px;height:10px;background:var(--background);border:1px var(--text) solid"></span>
+            background, <span style="display:inline-block;width:10px;height:10px;background:var(--accent)"></span>
+            accent, <span style="display:inline-block;width:10px;height:10px;background:var(--accent-dark)"></span>
+            accent-dark, and <span
+                style="display:inline-block;width:10px;height:10px;background:var(--accent-light)"></span> accent-light.
         <ul>
-            <li>Trained a classifier using TensorFlow for infrared camera images and temperature data to automatically stop a vertical moving actuator attached to the field robot.</li>
-            <li>Collected and analyzed infrared camera images and temperature data using Python and ROS2 for further comparison in leaf moisture and irrigation studies.</li>
-            <li>Worked with LoRa (long-range radio) Arduinos to send data over long distances in the field.</li>
-            <li>Implemented code in Python to interface LoRa using ROS2 Humble and Arduino Sketches.</li>
-            <li>Aided in testing navigation stacks using satellite GPS and Husky UGV from Clearpath Robotics.</li>
-            <li>Engaged in recurring update meetings with UC Merced PhD Students and UC Merced Robotics Professor.</li>
+            <li>
+                you can also make lists
+            </li>
+            <li>
+                unordered lists (<code>ul</code>) look like this
+            </li>
         </ul>
+        <ol>
+            <li>
+                ordered lists (<code>ol</code>) look like this
+            </li>
+            <li>
+                (they have numbers)
+            </li>
+        </ol>
 
-        <h3>Inclusive Interactive Lab Project Intern</h3>
-        <p>Oct 2022 - Dec 2022</p>
-        <p>Inclusive Interactive Lab · Internship</p>
-        <ul>
-            <li>Organized and scheduled test subjects for the in-person lab study.</li>
-            <li>Cooperated and learned closely from graduate students and professors throughout the lab.</li>
-            <li>Set up the lab study atmosphere and aided in conducting various test cases.</li>
-            <li>Paper published in CHI '24: Proceedings of the CHI Conference on Human Factors in Computing Systems.</li>
-        </ul>
+        <blockquote>
+            this is a blockquote, which is good for quoting.
+        </blockquote>
 
-        <h3>Merced nAnomaterials Center for Energy and Sensing Student Assistant / Web Developer</h3>
-        <p>Dec 2020 - Jan 2022</p>
-        <ul>
-            <li>Gathered and organized program research and education outputs to produce detailed semi-annual progress reports to NASA.</li>
-            <li>Revised material to update the MACES website and Center Director’s lab website.</li>
-            <li>Updated the MACES website and Center Director’s lab website using HTML and Squarespace.</li>
-            <li>Organized and recorded detailed notes for financial meetings and monthly staff meetings.</li>
-        </ul>
+        <div class="box center">
+            this is a box - you can put special content into it, if you want. use <code>class="center"</code> to center
+            text.
+        </div>
 
-        <h3>Google CSSI Student</h3>
-        <p>Jul 2020 - Jul 2020</p>
-        <ul>
-            <li>Led and developed a highly interactive application using JavaScript and Glitch visualizing and creating music using oscillating shapes and colors.</li>
-            <li>Engaged in community leadership discussions with software developer leaders to discuss updates on the project and brainstorm new ideas.</li>
-        </ul>
+        <div class="flex">
+            <div class="box">
+                want to put two boxes next to each other? or text next to an image?
+            </div>
+            <div class="box">
+                use a <code>div class="flex"</code>!
+            </div>
+        </div>
 
-    </div>
+        <hr>
+        ^ that's an <code>hr</code> - a little dividing line to put between elements.
 
-    <section id="contact">
-    <div class="contact">
-        <h3> feel free to contact me!</h3>
-        <p> kiannadng@gmail.com</p>
-    </div>
-    </section>
+        <h3>image gallery</h3>
+        <div id="gallery" class="columns">
+            you can put text here, too, if you want. the number of columns will change depending on how wide the window
+            is, making it responsive to view on phone screens!
+            <p>
+            <div class="box">don't want columns? just remove the <code>class = "columns"</code> bit. (this is good for
+                things like posting comic pages, since columns can mess with the order of your images.)
+            </div>
+            <figure>
+                <img src="images/300x300.png">
+                <figcaption>
+                    you can use the <code>figure & figcaption</code> elements if you want to add captions to your images
+                </figcaption>
+            </figure>
+            <img src="images/300x300.png">
+            <img src="images/500x300.png">
+             <img src="images/900x1200.png">
+            <img src="images/500x300.png">
+            <img src="images/300x300.png">
+            <img src="images/200x500.png">
+            <img src="images/300x300.png">
+            <img src="images/500x300.png">
+            <img src="images/300x300.png">
 
-    </div>
+        </div>
+
+        <div id="lightbox" popover></div>
+        <!-- don't get rid of this div, even though it looks empty - this is what makes your image lightbox work! -->
+
+    </main>
+    <footer>
+        footer text! this is where you put things like:
+        <br>(c) you, 2025 - forever.
+        <p>base code by <a href="https://kayleerowena.com/blog/2025/code-template">kaylee rowena</a>. (you don't have to
+            leave this in here, but i'd appreciate if you link to me somewhere on your site so other people can grab the
+            template if they want to! i'm not your mom or a cop, though, so do whatever you want.)
+        <p>you can put social media links here too:
+            <br><a href="https://bsky.app">bsky</a> | <a
+                href="https://www.instagram.com">instagram</a> | <a
+                href="https://tumblr.com/">tumblr</a> | <a href="https://ko-fi.com">tip
+                jar</a> | <a href="mailto:your@email.address">email</a>
+    </footer>
+
 </body>
+
+<!-- this bit is what makes the image lightbox work! -->
+<script>
+    const popover = document.getElementById("lightbox");
+
+    $('#gallery img').click(function (e) {
+        var image_src = $(this).attr("src");
+        $(this).attr('popovertarget', 'lightbox');
+        $('#lightbox').html('<img src="' + image_src + '" />');
+        popover.showPopover();
+        $('#lightbox').append('<button popovertarget="lightbox" popovertargetaction="hide">x</button>');
+    });
+</script>
+
 </html>
