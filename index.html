@@ -237,6 +237,22 @@
             position: relative;
         }
 
+        .snowflake-wrap {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        #snowflake-canvas {
+            display: block;
+            margin: 0.8rem auto;
+            background: #101010;
+            border: 3px solid var(--pink-dark);
+            border-radius: 6px;
+            box-shadow: 0 4px 8px var(--shadow);
+            max-width: 100%;
+            height: auto;
+        }
+
         .experience-item::before, .education-item::before {
             content: '▶';
             position: absolute;
@@ -270,6 +286,8 @@
         ul {
             margin-left: 3rem;
             margin-top: 1rem;
+            list-style: none;
+            padding-left: 0;
         }
 
         li {
@@ -475,27 +493,26 @@
 
         <section id="projects">
             <div class="section-window">
-                <div class="section-title-bar">
-                    <h2>◆ PROJECTS</h2>
-                </div>
+                        <div class="section-title-bar">
+                            <h2>◆ VISUAL PROJECTS</h2>
+                        </div>
                 <div class="section-content">
                     <div class="experience-item">
-                        <h3>Project Title</h3>
-                        <p class="date">Month Year - Month Year</p>
+                        <h3>Snowflake — Visual Audio</h3>
+                        <p class="date">Interactive • Jan 2026</p>
+                        <div class="snowflake-wrap">
+                            <canvas id="snowflake-canvas" width="480" height="360"></canvas>
+                            <div style="margin-top:0.6rem; display:flex; justify-content:center; gap:0.6rem; align-items:center; flex-wrap:wrap;">
+                                <button id="gen-snowflake" class="nav-btn">Start Beat</button>
+                                <label style="font-size:0.9rem; color:var(--pink-dark);">Tempo:</label>
+                                <input id="beat-speed" type="range" min="40" max="200" value="100" step="1" style="width:160px;">
+                                <span id="beat-value" style="color:var(--pink-accent); font-weight:bold;">100 BPM</span>
+                            </div>
+                        </div>
                         <ul>
-                            <li>Project description and accomplishments go here</li>
-                            <li>Add technical details and technologies used</li>
-                            <li>Highlight key features and outcomes</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <h3>Another Project</h3>
-                        <p class="date">Month Year - Month Year</p>
-                        <ul>
-                            <li>Project description and accomplishments go here</li>
-                            <li>Add technical details and technologies used</li>
-                            <li>Highlight key features and outcomes</li>
+                            <li>Port of a Python audio-driven snowflake visual, implemented in-browser.</li>
+                            <li>Uses a synthetic steady beat (no microphone required). Toggle the beat and adjust tempo with the slider.</li>
+                            <li>Visuals respond to the beat with bloom, scale and color shifts inspired by the original project.</li>
                         </ul>
                     </div>
                 </div>
@@ -509,4 +526,218 @@
         <a href="https://www.linkedin.com/in/kianna-ng-1b95041aa/" target="_blank" class="contact-btn">LINKEDIN</a>
     </footer>
 </body>
+<script>
+    // Port of snowflake.py visuals to browser: WebAudio + Canvas
+    (function(){
+        const canvas = document.getElementById('snowflake-canvas');
+        const btn = document.getElementById('gen-snowflake');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+
+        // Parameters (kept similar to Python version)
+        const WIDTH = canvas.width;
+        const HEIGHT = canvas.height;
+        const PIXEL_SIZE = 2;
+        const FUZZ_RADIUS = 6;
+        const FLOW_STRENGTH = 0.08;
+        const BASE_SCALE = 0.28;
+        const BASS_SCALE = 2;
+        const SCALE_SPRING = 0.25;
+        const SCALE_DAMPING = 0.75;
+        const GLOBAL_SCALE = 0.025;
+
+        // Geometry
+        const ARMS = 6;
+        const ARM_LENGTH = 260;
+        const ARM_THICKNESS = 7;
+        const INNER_RING_RADIUS = 120;
+        const RING_THICKNESS = 7;
+        const BRANCH_ANGLE = Math.PI/6;
+        const BRANCH_LENGTH = 70;
+        const BRANCH_THICKNESS = 5;
+        const SUB_BRANCH_ANGLE = Math.PI/10;
+        const SUB_BRANCH_LENGTH = 45;
+        const SUB_BRANCH_THICKNESS = 4;
+
+        // Colors
+        const ICE_BLUE = [110,175,255];
+        const PURE_WHITE = [255,255,255];
+        const COLOR_SMOOTH = 0.06;
+
+        // Create mask positions (pixel grid) — similar approach to Python
+        const cx = WIDTH/2, cy = HEIGHT/2;
+        let maskSet = new Set();
+
+        function addPixel(x,y){
+            const px = Math.round(x/PIXEL_SIZE)*PIXEL_SIZE;
+            const py = Math.round(y/PIXEL_SIZE)*PIXEL_SIZE;
+            maskSet.add(px+','+py);
+        }
+
+        function drawThickLine(x0,y0,x1,y1,thickness){
+            const steps = Math.max(1, Math.floor(Math.hypot(x1-x0,y1-y0)));
+            for (let t=0;t<=1;t+=1/steps){
+                const x = x0 + (x1-x0)*t;
+                const y = y0 + (y1-y0)*t;
+                for (let dx=-thickness; dx<=thickness; dx++){
+                    for (let dy=-thickness; dy<=thickness; dy++){
+                        addPixel(x+dx, y+dy);
+                    }
+                }
+            }
+        }
+
+        const sector = 2*Math.PI/ARMS;
+        for (let i=0;i<ARMS;i++){
+            const a = i*sector;
+            drawThickLine(cx,cy, cx+Math.cos(a)*ARM_LENGTH, cy+Math.sin(a)*ARM_LENGTH, ARM_THICKNESS);
+            for (let s of [-1,1]){
+                drawThickLine(
+                    cx+Math.cos(a)*ARM_LENGTH*0.55,
+                    cy+Math.sin(a)*ARM_LENGTH*0.55,
+                    cx+Math.cos(a + s*BRANCH_ANGLE)*(ARM_LENGTH*0.55 + BRANCH_LENGTH),
+                    cy+Math.sin(a + s*BRANCH_ANGLE)*(ARM_LENGTH*0.55 + BRANCH_LENGTH),
+                    BRANCH_THICKNESS
+                );
+                drawThickLine(
+                    cx+Math.cos(a)*ARM_LENGTH*0.82,
+                    cy+Math.sin(a)*ARM_LENGTH*0.82,
+                    cx+Math.cos(a + s*SUB_BRANCH_ANGLE)*(ARM_LENGTH*0.82 + SUB_BRANCH_LENGTH),
+                    cy+Math.sin(a + s*SUB_BRANCH_ANGLE)*(ARM_LENGTH*0.82 + SUB_BRANCH_LENGTH),
+                    SUB_BRANCH_THICKNESS
+                );
+            }
+        }
+
+        for (let t=0; t<Math.PI*2; t+=0.01){
+            for (let dx=-RING_THICKNESS; dx<=RING_THICKNESS; dx++){
+                for (let dy=-RING_THICKNESS; dy<=RING_THICKNESS; dy++){
+                    addPixel(cx + Math.cos(t)*INNER_RING_RADIUS + dx, cy + Math.sin(t)*INNER_RING_RADIUS + dy);
+                }
+            }
+        }
+
+        // unique mask array
+        const maskArr = Array.from(maskSet).map(s => s.split(',').map(Number));
+        const NUM = maskArr.length;
+
+        // Particles
+        const particles = new Array(NUM).fill(0).map(()=>({ x: Math.random()*WIDTH, y: Math.random()*HEIGHT }));
+        const fuzz = new Array(NUM).fill(0).map(()=>({ x: (Math.random()*2-1)*FUZZ_RADIUS, y: (Math.random()*2-1)*FUZZ_RADIUS }));
+
+        // Trail canvas
+        const trail = document.createElement('canvas');
+        trail.width = WIDTH; trail.height = HEIGHT;
+        const tctx = trail.getContext('2d');
+
+                // Beat-driven setup (pink palette + smooth flowing beat)
+                let bass = 0, bass_s = 0;
+                // use pink palette (from CSS variables)
+                const PINK_LIGHT = [255,179,217]; // #ffb3d9
+                const PINK_ACCENT = [255,20,147]; // #ff1493
+                const PINK_WHITE = [255,240,248]; // soft near-white
+                let currentColor = PINK_WHITE.slice();
+                let scale = BASE_SCALE;
+                function lerp(a,b,t){ return a + (b-a)*t; }
+
+                // Beat controls
+                const beatBtn = document.getElementById('gen-snowflake');
+                const beatSlider = document.getElementById('beat-speed');
+                const beatValue = document.getElementById('beat-value');
+                let beatOn = false;
+                let beatPhase = 0;
+                let lastTs = null;
+                let bpm = parseInt(beatSlider.value,10) || 100;
+
+                function setBPM(b){ bpm = parseInt(b,10) || 100; beatValue.textContent = bpm + ' BPM'; }
+                beatSlider.addEventListener('input',(e)=> setBPM(e.target.value));
+
+                beatBtn.addEventListener('click', ()=>{
+                    beatOn = !beatOn;
+                    beatBtn.textContent = beatOn ? 'Stop Beat' : 'Start Beat';
+                });
+
+                setBPM(bpm);
+
+                function draw(ts){
+                    if (!lastTs) lastTs = ts;
+                    const dt = Math.min(0.1, (ts - lastTs) / 1000);
+                    lastTs = ts;
+
+                    // advance phase if beat is on
+                    if (beatOn){
+                        beatPhase += (bpm / 60) * 2 * Math.PI * dt;
+                    }
+
+                    // smooth flowing beat derived from phase (soft envelope)
+                    const raw = (Math.sin(beatPhase) + 1) / 2; // 0..1
+                    const beatStrength = Math.pow(raw, 2.2); // shape the curve for a softer peak
+                    const flowMod = 0.5 + 0.5 * Math.sin(beatPhase * 0.5); // slow flowing component
+
+                    bass = beatStrength * 180;
+                    bass_s = 0.65 * bass_s + (1 - 0.65) * bass * 1.6;
+
+                    // trail effect (subtler)
+                    tctx.fillStyle = 'rgba(8,8,14,0.08)';
+                    tctx.fillRect(0,0,WIDTH,HEIGHT);
+                    ctx.clearRect(0,0,WIDTH,HEIGHT);
+                    ctx.drawImage(trail,0,0);
+
+                    // move particles toward mask with slight flow wobble
+                    for (let i=0;i<NUM;i++){
+                        const target = maskArr[i];
+                        const tx = target[0] + Math.cos(beatPhase*0.3 + i) * flowMod * 0.6;
+                        const ty = target[1] + Math.sin(beatPhase*0.27 + i) * flowMod * 0.6;
+                        const p = particles[i];
+                        p.x += (tx - p.x) * FLOW_STRENGTH;
+                        p.y += (ty - p.y) * FLOW_STRENGTH;
+                    }
+
+                    const effectiveScale = GLOBAL_SCALE * (1 + 0.08 * beatStrength);
+                    const target_scale = BASE_SCALE + bass_s * BASS_SCALE;
+                    scale += (target_scale - scale) * SCALE_SPRING;
+                    scale *= SCALE_DAMPING + 0.02;
+
+                    // color mixing between light pink and bright accent pink
+                    let mix = Math.min(Math.max((bass_s - 0.18) * 1.8, 0), 1);
+                    mix = mix * mix;
+                    const targetColor = [
+                        PINK_LIGHT[0] * (1-mix) + PINK_ACCENT[0]*mix,
+                        PINK_LIGHT[1] * (1-mix) + PINK_ACCENT[1]*mix,
+                        PINK_LIGHT[2] * (1-mix) + PINK_ACCENT[2]*mix,
+                    ];
+                    for (let k=0;k<3;k++) currentColor[k] = lerp(currentColor[k], targetColor[k], COLOR_SMOOTH);
+                    const colorStr = `rgb(${currentColor.map(v=>Math.round(Math.max(120,Math.min(255,v)))).join(',')})`;
+
+                    // draw pixels
+                    for (let i=0;i<NUM;i++){
+                        const m = maskArr[i];
+                        const dx = m[0] - cx;
+                        const dy = m[1] - cy;
+                        const sx = cx + dx * effectiveScale * scale + fuzz[i].x;
+                        const sy = cy + dy * effectiveScale * scale + fuzz[i].y;
+                        const px = Math.round(sx / PIXEL_SIZE) * PIXEL_SIZE;
+                        const py = Math.round(sy / PIXEL_SIZE) * PIXEL_SIZE;
+
+                        // trail draw
+                        tctx.fillStyle = `rgba(${currentColor.map(v=>Math.round(v)).join(',')},0.12)`;
+                        tctx.fillRect(px-1, py-1, PIXEL_SIZE+2, PIXEL_SIZE+2);
+
+                        // main
+                        ctx.fillStyle = colorStr;
+                        ctx.fillRect(px, py, PIXEL_SIZE, PIXEL_SIZE);
+                    }
+
+                    requestAnimationFrame(draw);
+                }
+
+                // initial setup: small random fuzz and draw
+                for (let i=0;i<NUM;i++){
+                    fuzz[i] = { x: (Math.random()*2-1)*FUZZ_RADIUS, y: (Math.random()*2-1)*FUZZ_RADIUS };
+                }
+
+                // start draw loop
+                requestAnimationFrame(draw);
+    })();
+</script>
 </html>
