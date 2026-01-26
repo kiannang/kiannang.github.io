@@ -1,196 +1,512 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" charset="utf-8"></script>
+    <title>Kianna Ng - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        :root {
+            --pink-bg: #ffc0cb;
+            --pink-dark: #ff69b4;
+            --pink-light: #ffb3d9;
+            --pink-accent: #ff1493;
+            --gray: #c0c0c0;
+            --dark-gray: #808080;
+            --white: #ffffff;
+            --text: #4a4a4a;
+            --shadow: rgba(255, 20, 147, 0.3);
+        }
 
-    <title>
-        Kianna Ng
-    </title>
-    <link rel="icon" type="image/x-icon" href="leaf.png">
-    <!-- the icon that shows up in the address bar -->
+        body {
+            font-family: 'Courier New', 'Lucida Console', monospace;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #ffc0cb 0%, #ffb3d9 50%, #ffc0cb 100%);
+            min-height: 100vh;
+        }
 
-    <!-- HTML Meta Tags-->
-     <!-- OMGOMG -->
-      
-    <meta property="og:type" content="Kianna Ng" />
-    <meta name="description" content="Kianna Ng's Portfolio Website" />
-    <meta property="og:image" content="images/preview.png">
-    <meta property="og:image:type" content="image/jpg">
+        header {
+            background: linear-gradient(180deg, #e0e0e0 0%, #c0c0c0 100%);
+            border: 3px solid var(--gray);
+            border-radius: 10px 10px 0 0;
+            box-shadow: 
+                inset 0 2px 0 rgba(255, 255, 255, 0.5),
+                0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            margin: 10px;
+        }
+
+        .window-title {
+            background: linear-gradient(90deg, var(--pink-accent), var(--pink-dark));
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 7px 7px 0 0;
+        }
+
+        .window-title h1 {
+            font-size: 1rem;
+            color: var(--white);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .window-btn {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-close { background: #ff5f56; }
+        .btn-minimize { background: #ffbd2e; }
+        .btn-maximize { background: #27c93f; }
+
+        nav {
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: linear-gradient(180deg, var(--white), var(--pink-light));
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border: 2px solid var(--gray);
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(180deg, var(--pink-light), var(--pink-dark));
+            color: var(--white);
+            box-shadow: 
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                0 4px 8px var(--shadow);
+        }
+
+        .nav-btn:active {
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+            transform: translateY(1px);
+        }
+
+        .hero {
+            background: linear-gradient(180deg, #e0e0e0, #d0d0d0);
+            margin: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 3px solid var(--gray);
+            border-radius: 10px;
+            box-shadow: 
+                inset 0 0 20px rgba(255, 105, 180, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid var(--pink-accent);
+            border-radius: 5px;
+            pointer-events: none;
+        }
+
+        .display-screen {
+            background: #2a2a2a;
+            color: var(--pink-accent);
+            padding: 2rem;
+            border-radius: 5px;
+            border: 2px solid #1a1a1a;
+            box-shadow: inset 0 0 30px rgba(255, 20, 147, 0.4);
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+
+        .display-screen::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(255, 20, 147, 0.1) 0px,
+                transparent 1px,
+                transparent 2px,
+                rgba(255, 20, 147, 0.1) 3px
+            );
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 
+                0 0 10px var(--pink-accent),
+                0 0 20px var(--pink-accent);
+            letter-spacing: 4px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--pink-light);
+            text-shadow: 0 0 5px var(--pink-light);
+        }
+
+        .hero .location {
+            font-size: 1rem;
+            color: var(--pink-light);
+            margin-top: 0.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        .section-window {
+            background: linear-gradient(180deg, #f0f0f0, #e0e0e0);
+            border: 3px solid var(--gray);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title-bar {
+            background: linear-gradient(90deg, var(--pink-dark), var(--pink-accent));
+            padding: 0.7rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title-bar h2 {
+            font-size: 1.2rem;
+            color: var(--white);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .section-content {
+            padding: 1.5rem;
+            background: var(--white);
+        }
+
+        .experience-item, .education-item {
+            background: linear-gradient(135deg, #fff 0%, var(--pink-bg) 100%);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--pink-light);
+            border-radius: 8px;
+            box-shadow: 
+                0 2px 4px var(--shadow),
+                inset 0 0 10px rgba(255, 182, 193, 0.2);
+            position: relative;
+        }
+
+        .experience-item::before, .education-item::before {
+            content: '▶';
+            position: absolute;
+            left: 0.8rem;
+            top: 1.3rem;
+            color: var(--pink-accent);
+            font-size: 1rem;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .experience-item h3, .education-item h3 {
+            color: var(--pink-accent);
+            margin-bottom: 0.5rem;
+            margin-left: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .date {
+            color: var(--pink-dark);
+            font-style: italic;
+            margin-bottom: 1rem;
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        ul {
+            margin-left: 3rem;
+            margin-top: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        li::before {
+            content: '♦';
+            position: absolute;
+            left: -1.5rem;
+            color: var(--pink-accent);
+        }
+
+        footer {
+            background: linear-gradient(180deg, #e0e0e0, #c0c0c0);
+            border: 3px solid var(--gray);
+            border-radius: 10px;
+            margin: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer h2 {
+            font-size: 1.5rem;
+            color: var(--pink-accent);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: linear-gradient(180deg, var(--white), var(--pink-light));
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--pink-dark);
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 1rem;
+            box-shadow: 
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                0 4px 8px var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: linear-gradient(180deg, var(--pink-light), var(--pink-dark));
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px var(--shadow);
+        }
+
+        .pixel-border {
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav {
+                gap: 0.3rem;
+            }
+
+            .nav-btn {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-    <div id="top"></div>
-    <div id="to-top"><a href="#top" title="back to top">^</a></div>
-
     <header>
-        <h1><a class="h1" href="/">
-            Kianna Ng
-            </a>
-        </h1>
-
+        <div class="window-title">
+            <h1>KIANNA_NG.exe</h1>
+            <div class="window-controls">
+                <div class="window-btn btn-close"></div>
+                <div class="window-btn btn-minimize"></div>
+                <div class="window-btn btn-maximize"></div>
+            </div>
+        </div>
         <nav>
-            <a href="#experience">
-                experience
-            </a>
-            <a href="#education">
-                education
-            </a>
-            <a href="#hobbies">
-                hobbies
-            </a>
-            <a href="#contacts">
-                contacts
-            </a>
+            <a href="#education" class="nav-btn">EDUCATION</a>
+            <a href="#experience" class="nav-btn">EXPERIENCE</a>
+            <a href="#projects" class="nav-btn">PROJECTS</a>
+            <a href="#contact" class="nav-btn">CONTACT</a>
         </nav>
     </header>
 
-    <main>
-        <h2>I don't know, but I'll learn.</h2>
-
-        <div class="experience">
-            <section id="experience">
-            <div class="box">
-            <h3>Experience</h3>
-
-                <b>
-                IoT4Ag Engineering Undergraduate Research Assistant
-                </b>
-                <p>Sep 2023 - Aug 2024</p>
-            <ul>
-                <li>Trained a classifier using TensorFlow for infrared camera images and temperature data to automatically stop a vertical moving actuator attached to the field robot.</li>
-                <li>Collected and analyzed infrared camera images and temperature data using Python and ROS2 for further comparison in leaf moisture and irrigation studies.</li>
-                <li>Worked with LoRa (long-range radio) Arduinos to send data over long distances in the field.</li>
-                <li>Implemented code in Python to interface LoRa using ROS2 Humble and Arduino Sketches.</li>
-                <li>Aided in testing navigation stacks using satellite GPS and Husky UGV from Clearpath Robotics.</li>
-                <li>Engaged in recurring update meetings with UC Merced PhD Students and UC Merced Robotics Professor.</li>
-            </ul>
-
-            <b>
-            Inclusive Interactive Lab Project Intern
-            </b>
-            <p>Oct 2022 - Dec 2022</p>
-            <ul>
-                <li>Organized and scheduled test subjects for the in-person lab study.</li>
-                <li>Cooperated and learned closely from graduate students and professors throughout the lab.</li>
-                <li>Set up the lab study atmosphere and aided in conducting various test cases.</li>
-                <li>Paper published in CHI '24: Proceedings of the CHI Conference on Human Factors in Computing Systems.</li>
-            </ul>
-
-            <b>Merced nAnomaterials Center for Energy and Sensing Student Assistant / Web Developer</b>
-            <p>Dec 2020 - Jan 2022</p>
-            <ul>
-                <li>Gathered and organized program research and education outputs to produce detailed semi-annual progress reports to NASA.</li>
-                <li>Revised material to update the MACES website and Center Director’s lab website.</li>
-                <li>Updated the MACES website and Center Director’s lab website using HTML and Squarespace.</li>
-                <li>Organized and recorded detailed notes for financial meetings and monthly staff meetings.</li>
-            </ul>
-
-            <b>Google CSSI Student</b>
-            <p>Jul 2020 - Jul 2020</p>
-            <ul>
-                <li>Led and developed a highly interactive application using JavaScript and Glitch visualizing and creating music using oscillating shapes and colors.</li>
-                <li>Engaged in community leadership discussions with software developer leaders to discuss updates on the project and brainstorm new ideas.</li>
-            </ul>
-            </div>
-            </section>
+    <section class="hero">
+        <div class="display-screen">
+            <h1>KIANNA NG</h1>
+            <p>> I don't know, but I'll learn.</p>
+            <p class="location">San Francisco, CA | GitHub: kiannang</p>
         </div>
-
-        
-        <div class="education">
-            <section id="education">
-            <div class="box">
-            <h3>Education</h3>
-
-                <b>
-                University of California, Merced
-                </b>
-                <p>Bachelor of Science in Computer Science and Engineering</p>
-                <p>Aug 2020 - May 2024</p>
-            <ul>
-                <li>Achieved Chancellor and Dean’s Honor list</li>
-                <li>Activities and societies: Hmong Student Association - Historian</li>
-                <li>Relevant Classes - Computer Architecture, Operating Systems, Digital Image Processing, Introduction to Robotics, Human Computer Interaction, Algorithm Design and Analysis, Computer Organization and Assembly Language, Data Structures</li>
-            </ul>
-
-                <b>
-                George Washington High School
-                </b>
-                <p>Aug 2016 - June 2020</p>
-            <ul>
-                <li>Activities and societies: Girls Who Code, Robotic Eagles, Volleyball, American Service Club, and Youth Outreach Worker</li>
-            </ul>
-            </div>
-            </section>
-        </div>
-
-        <section id="hobbies">
-        <h3>Hobbies</h3>
-        <div id="gallery" class="columns">
-            <p>
-            <div class="box">I enjoy collecting trinkets, gaming, photography, traveling, and food!</div>
-            <img src="hobbies/plane.jpg">
-            <img src="hobbies/frogfood.jpg">
-            <img src="hobbies/japan.jpg">
-            <img src="hobbies/pokemon2.jpg">
-            <img src="hobbies/food3.jpg">
-            <img src="hobbies/dimsum.jpg">
-            <img src="hobbies/sonnyblossom.jpg">
-            <img src="hobbies/traveling2.jpg">
-            <img src="hobbies/sonnycoffee.jpg">
-            <img src="hobbies/pokemon3.jpg">
-            <img src="hobbies/food.jpg">
-            <img src="hobbies/food2.jpg">
-            <img src="hobbies/pokemon.jpg">
-
-            <figure>
-                <img src="hobbies/photo.jpg">
-                <img src="hobbies/photo2.jpg">
-                <figcaption>
-                    Graduation photos taken on a Nikon DSLR and edited with Adobe Lightroom
-                </figcaption>
-            </figure>
-
-            <figure>
-                <img src="hobbies/photo3.jpg">
-                <figcaption>
-                    Late night photography taken on a Canon Digicam
-                </figcaption>
-            </figure>
-
-        </section>
-        </div>
-
-        <div id="lightbox" popover></div>
-        <!-- don't get rid of this div, even though it looks empty - this is what makes your image lightbox work! -->
-
-    </main>
-    <section id="contacts">
-    <footer>
-        Thanks for Visiting
-        <p>Feel free to contact me:
-            <br> <a href="https://www.linkedin.com/in/kianna-ng-1b95041aa/">linked in</a>
-    </footer>
     </section>
 
+    <div class="container">
+        <section id="education">
+            <div class="section-window">
+                <div class="section-title-bar">
+                    <h2>◆ EDUCATION</h2>
+                </div>
+                <div class="section-content">
+                    <div class="education-item">
+                        <h3>University of California, Merced</h3>
+                        <p><strong>Ph.D in Electrical Engineering and Computer Science</strong></p>
+                        <p class="date">Aug 2025 - Present</p>
+                        <ul>
+                            <li>Research Member of the Mi3 Laboratory under PI Ross Greer</li>
+                        </ul>
+                    </div>
+
+                    <div class="education-item">
+                        <h3>University of California, Merced</h3>
+                        <p><strong>Bachelor of Science in Computer Science and Engineering - 3.7 GPA</strong></p>
+                        <p class="date">Aug 2020 - May 2024</p>
+                        <ul>
+                            <li>Achieved Chancellor and Dean's Honor list</li>
+                            <li>Relevant Classes: Computer Architecture, Operating Systems, Digital Image Processing, Introduction to Robotics, Human Computer Interaction, Algorithm Design and Analysis, Computer Organization and Assembly Language, Data Structures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="section-window">
+                <div class="section-title-bar">
+                    <h2>◆ EXPERIENCE</h2>
+                </div>
+                <div class="section-content">
+                    <div class="experience-item">
+                        <h3>Machine Intelligence, Interaction, and Imagination Lab (Mi3)</h3>
+                        <p><strong>Graduate Student Researcher</strong></p>
+                        <p class="date">Aug 2025 - Present</p>
+                        <ul>
+                            <li>Developing a project proposal for the Enhanced Safety of Vehicles (ESV) Conference Student Safety Technology Design Competition, focused on improving construction zone safety through dynamic speed limit recognition and corrective alert systems.</li>
+                            <li>Developing a multi-task deep learning model to jointly estimate driver state through emotion and gaze recognition.</li>
+                            <li>Learning to conduct research on safety in autonomous driving, robotic perception, and human-machine communication.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Internet of Things for Precision Agriculture (IoT4Ag)</h3>
+                        <p><strong>Undergraduate Student Researcher</strong></p>
+                        <p class="date">Sep 2023 - Aug 2024</p>
+                        <ul>
+                            <li>Trained a classifier using TensorFlow for infrared camera images and temperature data to automatically stop a vertical moving actuator attached to the field robot.</li>
+                            <li>Collected and analyzed infrared camera images and temperature data using Python and ROS2 for further comparison in leaf moisture and irrigation studies.</li>
+                            <li>Worked with LoRa (long range radio) Arduinos to send data over long distances in the field.</li>
+                            <li>Implemented code in Python to interface LoRa using ROS2 Humble and Arduino Sketches.</li>
+                            <li>Aided in testing navigation stacks using satellite GPS and Husky UGV from Clearpath Robotics.</li>
+                            <li>Engaged in recurring update meetings with UC Merced PhD Students and UC Merced Robotics Professor.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Creating LLM Tools to improve Internal and External Operations</h3>
+                        <p><strong>Backend Developer</strong></p>
+                        <p class="date">Jan 2024 - May 2024</p>
+                        <ul>
+                            <li>Won 1st Place in the Industry Category at UC Merced's Senior Capstone Competition.</li>
+                            <li>Collaborated closely with a team to build an internal chatbot that lives inside a Slack workspace and an external website chatbot; both to read from living data files and respond to general or data-based queries.</li>
+                            <li>Worked intensively using Python, Flask and OpenAI's API, and Slack's API.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Inclusive Interactive Lab: Effects of Scent on Performance</h3>
+                        <p><strong>Undergraduate Student Volunteer</strong></p>
+                        <p class="date">Oct 2022 - Dec 2022</p>
+                        <ul>
+                            <li>Organized and scheduled test subjects for the in-person lab study.</li>
+                            <li>Set up the lab study atmosphere and aided in conducting various test cases.</li>
+                            <li>Paper published in CHI '24: Proceedings of the CHI Conference on Human Factors in Computing Systems.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Merced nAnomaterials Center for Energy and Sensing</h3>
+                        <p><strong>Website Developer / Student Assistant</strong></p>
+                        <p class="date">Dec 2020 - Jan 2022</p>
+                        <ul>
+                            <li>Gathered and organized program research and education outputs to produce detailed semi-annual progress reports to NASA.</li>
+                            <li>Updated the MACES website and Center Director's lab website using HTML deployed on Squarespace.</li>
+                            <li>Organized and recorded detailed notes for financial meetings and monthly staff meetings.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-window">
+                <div class="section-title-bar">
+                    <h2>◆ PROJECTS</h2>
+                </div>
+                <div class="section-content">
+                    <div class="experience-item">
+                        <h3>Project Title</h3>
+                        <p class="date">Month Year - Month Year</p>
+                        <ul>
+                            <li>Project description and accomplishments go here</li>
+                            <li>Add technical details and technologies used</li>
+                            <li>Highlight key features and outcomes</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Another Project</h3>
+                        <p class="date">Month Year - Month Year</p>
+                        <ul>
+                            <li>Project description and accomplishments go here</li>
+                            <li>Add technical details and technologies used</li>
+                            <li>Highlight key features and outcomes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="contact">
+        <h2>♥ THANKS FOR VISITING ♥</h2>
+        <p>Feel free to contact me:</p>
+        <a href="https://www.linkedin.com/in/kianna-ng-1b95041aa/" target="_blank" class="contact-btn">LINKEDIN</a>
+    </footer>
 </body>
-
-<!-- this bit is what makes the image lightbox work! -->
-<script>
-    const popover = document.getElementById("lightbox");
-
-    $('#gallery img').click(function (e) {
-        var image_src = $(this).attr("src");
-        $(this).attr('popovertarget', 'lightbox');
-        $('#lightbox').html('<img src="' + image_src + '" />');
-        popover.showPopover();
-        $('#lightbox').append('<button popovertarget="lightbox" popovertargetaction="hide">x</button>');
-    });
-</script>
-
 </html>
