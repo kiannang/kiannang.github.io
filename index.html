@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kianna Ng - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,52 +15,56 @@
         }
 
         :root {
-            --pink-bg: #ffc0cb;
-            --pink-dark: #ff69b4;
-            --pink-light: #ffb3d9;
-            --pink-accent: #ff1493;
-            --gray: #c0c0c0;
-            --dark-gray: #808080;
-            --white: #ffffff;
-            --text: #4a4a4a;
-            --shadow: rgba(255, 20, 147, 0.3);
+            --bg: #eef9dc;
+            --panel: #ffffff;
+            --ink: #2b2b2b;
+            --muted: #5f6660;
+            --accent: #f3a4b8;
+            --accent-2: #f4b8c8;
+            --accent-soft: #fde8ee;
+            --border: #f2c7d4;
+            --shadow: 0 20px 48px rgba(155, 96, 116, 0.15);
+            --radius: 18px;
+            --max-width: 1080px;
         }
 
         body {
-            font-family: 'Courier New', 'Lucida Console', monospace;
+            font-family: 'DM Sans', 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: var(--text);
-            background: linear-gradient(135deg, #ffc0cb 0%, #ffb3d9 50%, #ffc0cb 100%);
+            color: var(--ink);
+            background:
+                radial-gradient(900px 600px at 85% -10%, rgba(174, 219, 140, 0.2), transparent 60%),
+                radial-gradient(700px 500px at 10% 5%, rgba(244, 168, 184, 0.18), transparent 55%),
+                var(--bg);
             min-height: 100vh;
         }
 
         header {
-            background: linear-gradient(180deg, #e0e0e0 0%, #c0c0c0 100%);
-            border: 3px solid var(--gray);
-            border-radius: 10px 10px 0 0;
-            box-shadow: 
-                inset 0 2px 0 rgba(255, 255, 255, 0.5),
-                0 4px 8px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(234, 223, 230, 0.9);
+            border-radius: var(--radius);
+            box-shadow: 0 14px 34px rgba(74, 40, 60, 0.12);
             position: sticky;
-            top: 10px;
+            top: 16px;
             z-index: 100;
-            margin: 10px;
+            margin: 16px;
+            backdrop-filter: blur(10px);
         }
 
         .window-title {
-            background: linear-gradient(90deg, var(--pink-accent), var(--pink-dark));
-            padding: 0.5rem 1rem;
+            background: linear-gradient(90deg, rgba(174, 219, 140, 0.4), rgba(244, 168, 184, 0.25));
+            padding: 0.9rem 1.6rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-radius: 7px 7px 0 0;
+            border-radius: var(--radius) var(--radius) 0 0;
         }
 
         .window-title h1 {
-            font-size: 1rem;
-            color: var(--white);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-            letter-spacing: 1px;
+            font-size: 1.02rem;
+            color: var(--ink);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
         }
 
         .window-controls {
@@ -69,16 +76,16 @@
             width: 16px;
             height: 16px;
             border-radius: 50%;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(31, 41, 51, 0.15);
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.7);
         }
 
-        .btn-close { background: #ff5f56; }
-        .btn-minimize { background: #ffbd2e; }
-        .btn-maximize { background: #27c93f; }
+        .btn-close { background: #e04f5f; }
+        .btn-minimize { background: #e9b949; }
+        .btn-maximize { background: #4caf7a; }
 
         nav {
-            padding: 1rem;
+            padding: 1rem 1.5rem 1.4rem;
             display: flex;
             justify-content: center;
             gap: 0.5rem;
@@ -86,66 +93,64 @@
         }
 
         .nav-btn {
-            background: linear-gradient(180deg, var(--white), var(--pink-light));
-            color: var(--text);
+            background: #fff7fb;
+            color: #a96a7f;
             text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            border: 2px solid var(--gray);
-            border-radius: 5px;
-            font-weight: bold;
-            box-shadow: 
-                inset 0 1px 0 rgba(255, 255, 255, 0.8),
-                0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: all 0.2s;
-            font-size: 0.9rem;
+            padding: 0.45rem 1.1rem;
+            border: 1px solid rgba(243, 164, 184, 0.5);
+            border-radius: 999px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            font-size: 0.82rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
         }
 
         .nav-btn:hover {
-            background: linear-gradient(180deg, var(--pink-light), var(--pink-dark));
-            color: var(--white);
-            box-shadow: 
-                inset 0 1px 0 rgba(255, 255, 255, 0.5),
-                0 4px 8px var(--shadow);
+            background: var(--accent);
+            color: var(--panel);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px rgba(243, 164, 184, 0.35);
         }
 
         .nav-btn:active {
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.18);
             transform: translateY(1px);
         }
 
         .hero {
-            background: linear-gradient(180deg, #e0e0e0, #d0d0d0);
-            margin: 20px;
-            padding: 3rem 2rem;
+            background: var(--panel);
+            margin: 24px auto 10px;
+            padding: 3.2rem 2.5rem;
             text-align: center;
-            border: 3px solid var(--gray);
-            border-radius: 10px;
-            box-shadow: 
-                inset 0 0 20px rgba(255, 105, 180, 0.3),
-                0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
             position: relative;
+            max-width: var(--max-width);
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            border: 1px solid var(--pink-accent);
-            border-radius: 5px;
+            top: 14px;
+            left: 14px;
+            right: 14px;
+            bottom: 14px;
+            border: 1px solid rgba(243, 164, 184, 0.35);
+            border-radius: 12px;
             pointer-events: none;
         }
 
         .display-screen {
-            background: #2a2a2a;
-            color: var(--pink-accent);
-            padding: 2rem;
-            border-radius: 5px;
-            border: 2px solid #1a1a1a;
-            box-shadow: inset 0 0 30px rgba(255, 20, 147, 0.4);
-            font-family: 'Courier New', monospace;
+            background: linear-gradient(145deg, #fff7fb, #f8f3f5);
+            color: var(--ink);
+            padding: 2.4rem;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+            font-family: 'Playfair Display', 'Georgia', serif;
             position: relative;
         }
 
@@ -156,85 +161,158 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                rgba(255, 20, 147, 0.1) 0px,
-                transparent 1px,
-                transparent 2px,
-                rgba(255, 20, 147, 0.1) 3px
-            );
+            background: linear-gradient(120deg, rgba(243, 164, 184, 0.18), transparent 52%);
             pointer-events: none;
+            border-radius: 14px;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: clamp(2.2rem, 3vw, 3rem);
             margin-bottom: 1rem;
-            text-shadow: 
-                0 0 10px var(--pink-accent),
-                0 0 20px var(--pink-accent);
-            letter-spacing: 4px;
+            letter-spacing: 0.06em;
+            color: #b05b78;
+            text-transform: uppercase;
+        }
+
+        .hero-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 999px;
+            object-fit: cover;
+            border: 3px solid #ffffff;
+            box-shadow: 0 12px 24px rgba(243, 164, 184, 0.35);
+            margin: 0 auto 1.2rem;
+            display: block;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            color: var(--pink-light);
-            text-shadow: 0 0 5px var(--pink-light);
+            font-size: 1.1rem;
+            color: var(--muted);
+            font-family: 'DM Sans', 'Segoe UI', sans-serif;
+        }
+
+        .hero .intro {
+            font-weight: 500;
         }
 
         .hero .location {
-            font-size: 1rem;
-            color: var(--pink-light);
-            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-top: 0.75rem;
+            letter-spacing: 0.04em;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.2rem;
+        }
+
+        .tag {
+            background: #fff;
+            border: 1px solid rgba(243, 164, 184, 0.5);
+            color: #a96a7f;
+            padding: 0.3rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1.6rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.65rem 1.6rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .hero-btn.primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 10px 24px rgba(243, 164, 184, 0.35);
+        }
+
+        .hero-btn.primary:hover {
+            background: #e989a3;
+            transform: translateY(-1px);
+        }
+
+        .hero-btn.ghost {
+            background: #ffffff;
+            border-color: rgba(243, 164, 184, 0.6);
+            color: #a96a7f;
+        }
+
+        .hero-btn.ghost:hover {
+            border-color: #a96a7f;
+            transform: translateY(-1px);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: var(--max-width);
             margin: 0 auto;
             padding: 2rem;
         }
 
         section {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .section-window {
-            background: linear-gradient(180deg, #f0f0f0, #e0e0e0);
-            border: 3px solid var(--gray);
-            border-radius: 10px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 14px 34px rgba(74, 40, 60, 0.1);
         }
 
         .section-title-bar {
-            background: linear-gradient(90deg, var(--pink-dark), var(--pink-accent));
-            padding: 0.7rem 1rem;
+            background: var(--accent-soft);
+            padding: 1rem 1.6rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            border-bottom: 1px solid var(--border);
         }
 
         .section-title-bar h2 {
-            font-size: 1.2rem;
-            color: var(--white);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-            letter-spacing: 2px;
+            font-size: 0.95rem;
+            color: var(--accent);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
         }
 
         .section-content {
-            padding: 1.5rem;
-            background: var(--white);
+            padding: 1.8rem;
+            background: var(--panel);
         }
 
         .experience-item, .education-item {
-            background: linear-gradient(135deg, #fff 0%, var(--pink-bg) 100%);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border: 2px solid var(--pink-light);
-            border-radius: 8px;
-            box-shadow: 
-                0 2px 4px var(--shadow),
-                inset 0 0 10px rgba(255, 182, 193, 0.2);
+            background: #fff9fc;
+            padding: 1.6rem 1.8rem;
+            margin-bottom: 1.6rem;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 12px 26px rgba(74, 40, 60, 0.08);
             position: relative;
+            border-left: 4px solid rgba(243, 164, 184, 0.7);
         }
 
         .snowflake-wrap {
@@ -245,49 +323,31 @@
         #snowflake-canvas {
             display: block;
             margin: 0.8rem auto;
-            background: #101010;
-            border: 3px solid var(--pink-dark);
-            border-radius: 6px;
-            box-shadow: 0 4px 8px var(--shadow);
+            background: #0f1117;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 12px 22px rgba(15, 23, 42, 0.25);
             max-width: 100%;
             height: auto;
         }
 
-        .experience-item::before, .education-item::before {
-            content: '▶';
-            position: absolute;
-            left: 0.8rem;
-            top: 1.3rem;
-            color: var(--pink-accent);
-            font-size: 1rem;
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
         .experience-item h3, .education-item h3 {
-            color: var(--pink-accent);
-            margin-bottom: 0.5rem;
-            margin-left: 1.5rem;
+            color: var(--ink);
+            margin-bottom: 0.4rem;
             font-size: 1.1rem;
+            font-weight: 700;
         }
 
         .date {
-            color: var(--pink-dark);
-            font-style: italic;
-            margin-bottom: 1rem;
-            margin-left: 1.5rem;
+            color: var(--muted);
+            margin-bottom: 0.9rem;
             font-size: 0.9rem;
         }
 
         ul {
-            margin-left: 3rem;
             margin-top: 1rem;
-            list-style: none;
-            padding-left: 0;
+            list-style: disc;
+            padding-left: 1.2rem;
         }
 
         li {
@@ -295,51 +355,43 @@
             position: relative;
         }
 
-        li::before {
-            content: '♦';
-            position: absolute;
-            left: -1.5rem;
-            color: var(--pink-accent);
-        }
-
         footer {
-            background: linear-gradient(180deg, #e0e0e0, #c0c0c0);
-            border: 3px solid var(--gray);
-            border-radius: 10px;
-            margin: 20px;
-            padding: 2rem;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin: 24px auto 40px;
+            padding: 2.5rem;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 14px 34px rgba(74, 40, 60, 0.1);
+            max-width: var(--max-width);
         }
 
         footer h2 {
-            font-size: 1.5rem;
-            color: var(--pink-accent);
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
+            font-size: 1.4rem;
+            color: var(--ink);
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         .contact-btn {
             display: inline-block;
-            background: linear-gradient(180deg, var(--white), var(--pink-light));
-            color: var(--text);
+            background: var(--accent);
+            color: var(--panel);
             text-decoration: none;
-            padding: 0.8rem 2rem;
-            border: 2px solid var(--pink-dark);
-            border-radius: 20px;
-            font-weight: bold;
+            padding: 0.75rem 2rem;
+            border: 1px solid var(--accent);
+            border-radius: 999px;
+            font-weight: 600;
             margin-top: 1rem;
-            box-shadow: 
-                inset 0 1px 0 rgba(255, 255, 255, 0.8),
-                0 4px 8px var(--shadow);
-            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(243, 164, 184, 0.35);
+            transition: all 0.2s ease;
         }
 
         .contact-btn:hover {
-            background: linear-gradient(180deg, var(--pink-light), var(--pink-dark));
-            color: var(--white);
+            background: #e989a3;
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px var(--shadow);
+            box-shadow: 0 12px 24px rgba(243, 164, 184, 0.4);
         }
 
         .pixel-border {
@@ -350,8 +402,7 @@
 
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2rem;
-                letter-spacing: 2px;
+                letter-spacing: 0.04em;
             }
 
             .hero p {
@@ -363,8 +414,8 @@
             }
 
             .nav-btn {
-                padding: 0.4rem 1rem;
-                font-size: 0.8rem;
+                padding: 0.35rem 0.9rem;
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -372,7 +423,7 @@
 <body>
     <header>
         <div class="window-title">
-            <h1>KIANNA_NG.exe</h1>
+            <h1>Kianna Ng - Portfolio</h1>
             <div class="window-controls">
                 <div class="window-btn btn-close"></div>
                 <div class="window-btn btn-minimize"></div>
@@ -380,19 +431,29 @@
             </div>
         </div>
         <nav>
-            <a href="#education" class="nav-btn">EDUCATION</a>
-            <a href="#experience" class="nav-btn">EXPERIENCE</a>
-            <a href="#lab-work" class="nav-btn">LAB WORK</a>
-            <a href="#projects" class="nav-btn">PROJECTS</a>
-            <a href="#contact" class="nav-btn">CONTACT</a>
+            <a href="#education" class="nav-btn">Education</a>
+            <a href="#experience" class="nav-btn">Experience</a>
+            <a href="#publications" class="nav-btn">Publications</a>
+            <a href="#lab-work" class="nav-btn">Lab Work</a>
+            <a href="#contact" class="nav-btn">Contact</a>
         </nav>
     </header>
 
     <section class="hero">
         <div class="display-screen">
-            <h1>KIANNA NG</h1>
-            <p>> I don't know, but I'll learn.</p>
-            <p class="location">San Francisco, CA | GitHub: kiannang</p>
+            <img src="images/headshotcropped.jpg" alt="Headshot of Kianna Ng" class="hero-photo">
+            <h1>Kianna Ng</h1>
+            <p class="intro">Ph.D. Student in Electrical Engineering and Computer Science</p>
+            <p class="location">San Francisco, CA · GitHub: kiannang</p>
+            <div class="hero-tags">
+                <span class="tag">Human-Centered AI</span>
+                <span class="tag">Autonomous Systems</span>
+                <span class="tag">Robotics</span>
+            </div>
+            <div class="hero-actions">
+                <a class="hero-btn primary" href="#contact">Contact Me</a>
+                <a class="hero-btn ghost" href="https://www.linkedin.com/in/kianna-ng-1b95041aa/" target="_blank">LinkedIn</a>
+            </div>
         </div>
     </section>
 
@@ -400,7 +461,7 @@
         <section id="education">
             <div class="section-window">
                 <div class="section-title-bar">
-                    <h2>◆ EDUCATION</h2>
+                    <h2>Education</h2>
                 </div>
                 <div class="section-content">
                     <div class="education-item">
@@ -428,7 +489,7 @@
         <section id="experience">
             <div class="section-window">
                 <div class="section-title-bar">
-                    <h2>◆ EXPERIENCE</h2>
+                    <h2>Experience</h2>
                 </div>
                 <div class="section-content">
                     <div class="experience-item">
@@ -492,10 +553,29 @@
             </div>
         </section>
 
+        <section id="publications">
+            <div class="section-window">
+                <div class="section-title-bar">
+                    <h2>Publications</h2>
+                </div>
+                <div class="section-content">
+                    <div class="experience-item">
+                        <h3>Investigating the Effects of Self-selected Pleasant Scents on Text Composition and Transcription Performance</h3>
+                        <p><strong>Wendy Haw, Yuan Ren, Kianna Ng, Ahmed Sabbir Arif</strong></p>
+                        <p class="date">CHI 2024 (May 11-16, 2024) - Honolulu, HI, USA</p>
+                        <ul>
+                            <li>Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '24).</li>
+                            <li>DOI: <a href="https://doi.org/10.1145/3613904.3642445" target="_blank">10.1145/3613904.3642445</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="lab-work">
             <div class="section-window">
                 <div class="section-title-bar">
-                    <h2>â—† LAB WORK</h2>
+                    <h2>Lab Work</h2>
                 </div>
                 <div class="section-content">
                     <div class="experience-item">
@@ -520,37 +600,10 @@
             </div>
         </section>
 
-        <section id="projects">
-            <div class="section-window">
-                        <div class="section-title-bar">
-                            <h2>◆ VISUAL PROJECTS</h2>
-                        </div>
-                <div class="section-content">
-                    <div class="experience-item">
-                        <h3>Snowflake — Visual Audio</h3>
-                        <p class="date">Interactive • Jan 2026</p>
-                        <div class="snowflake-wrap">
-                            <canvas id="snowflake-canvas" width="480" height="360"></canvas>
-                            <div style="margin-top:0.6rem; display:flex; justify-content:center; gap:0.6rem; align-items:center; flex-wrap:wrap;">
-                                <button id="gen-snowflake" class="nav-btn">Start Beat</button>
-                                <label style="font-size:0.9rem; color:var(--pink-dark);">Tempo:</label>
-                                <input id="beat-speed" type="range" min="40" max="200" value="100" step="1" style="width:160px;">
-                                <span id="beat-value" style="color:var(--pink-accent); font-weight:bold;">100 BPM</span>
-                            </div>
-                        </div>
-                        <ul>
-                            <li>Port of a Python audio-driven snowflake visual, implemented in-browser.</li>
-                            <li>Uses a synthetic steady beat (no microphone required). Toggle the beat and adjust tempo with the slider.</li>
-                            <li>Visuals respond to the beat with bloom, scale and color shifts inspired by the original project.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
 
     <footer id="contact">
-        <h2>♥ THANKS FOR VISITING ♥</h2>
+        <h2>Thanks for visiting</h2>
         <p>Feel free to contact me:</p>
         <a href="https://www.linkedin.com/in/kianna-ng-1b95041aa/" target="_blank" class="contact-btn">LINKEDIN</a>
     </footer>
@@ -593,7 +646,7 @@
         const PURE_WHITE = [255,255,255];
         const COLOR_SMOOTH = 0.06;
 
-        // Create mask positions (pixel grid) — similar approach to Python
+        // Create mask positions (pixel grid) - similar approach to Python
         const cx = WIDTH/2, cy = HEIGHT/2;
         let maskSet = new Set();
 
@@ -770,3 +823,4 @@
     })();
 </script>
 </html>
+
