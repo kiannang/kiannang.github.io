@@ -3,7 +3,8 @@ title: "I Finished Silicon Valley — Here Are My Thoughts"
 date: "2026-04-02"
 description: "Thoughts on Silicon Valley, what felt real, and why it stuck with me more than I expected."
 tags: ["Media", "TV", "Thoughts"]
-image: "/images/blog/silicon-valley.jpg"
+image: "posts/images/SilconValleyBinge.webp"
+imageCredit: "John P. Johnson/HBO"
 ---
 
 ## First Impressions
