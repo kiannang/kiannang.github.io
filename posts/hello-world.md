@@ -3,7 +3,7 @@ title: "Hello, World."
 date: "2026-04-02"
 description: "A first post — why I'm starting to write, and what you can expect here."
 tags: ["Updates", "Blog"]
-image: "/posts/images/introduction.JPG"
+image: "/images/blog/introduction.JPG"
 ---
 
 Welcome to my little corner of the internet. I'm Kianna, a PhD student at UC Merced working on computer vision, robotic perception, and human-centered AI. I spend most of my time thinking about how machines see the world and how we can make that safer and more useful for people.

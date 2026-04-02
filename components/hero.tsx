@@ -68,7 +68,7 @@ export function Hero() {
 
           <div className="flex flex-wrap gap-3">
             <Link
-              href="#publications"
+              href="/#publications"
               className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-[#f4c9d6] hover:bg-accent/80"
             >
               View Work
@@ -82,7 +82,7 @@ export function Hero() {
               Download CV
             </Link>
             <Link
-              href="#contact"
+              href="/#contact"
               className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-medium text-muted hover:border-accent/30 hover:text-foreground"
             >
               Contact Me

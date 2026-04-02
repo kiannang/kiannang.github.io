@@ -8,10 +8,10 @@ import { site } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "#home", label: "Home", id: "home" },
-  { href: "#publications", label: "Publications", id: "publications" },
-  { href: "#experience", label: "Experience", id: "experience" },
-  { href: "#contact", label: "Contact", id: "contact" },
+  { href: "/#home", label: "Home", id: "home" },
+  { href: "/#publications", label: "Publications", id: "publications" },
+  { href: "/#experience", label: "Experience", id: "experience" },
+  { href: "/#contact", label: "Contact", id: "contact" },
 ];
 
 const blogHref = "/blog";
