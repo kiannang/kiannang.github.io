@@ -9,7 +9,7 @@ imageCredit: "John P. Johnson/HBO"
 
 ## First Impressions
 
-I finally finished Silicon Valley, and I didn’t expect to have this many thoughts about it.
+I finally finished binge-watching Silicon Valley, and I didn’t expect to have this many thoughts about it.
 
 I went into it thinking it would just be a funny sitcom about tech, but it ended up feeling very forward-looking. It’s actually a really interesting way, as an aspiring engineer, to see the business side of everything while still being entertained.
 
