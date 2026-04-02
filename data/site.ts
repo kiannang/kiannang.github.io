@@ -3,7 +3,13 @@ export const site = {
   role: "PhD Student in Electrical Engineering and Computer Science",
   affiliation: "University of California, Merced",
   location: "Merced, CA",
-  heroTags: ["Human-Centered AI", "Multimodal Learning", "Robotics", "Sensing Systems"],
+  heroTags: [
+    "Computer Vision",
+    "Robotic Perception",
+    "Human-Centered AI",
+    "Autonomous Driving Safety",
+    "Multimodal Sensing",
+  ],
   email: "kiannadng@gmail.com",
   links: {
     github: "https://github.com/kiannang",

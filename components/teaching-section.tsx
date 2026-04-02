@@ -1,4 +1,4 @@
-import { teaching } from "@/data/teaching";
+import { teaching, activities } from "@/data/teaching";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeader } from "@/components/section-header";
@@ -39,6 +39,21 @@ export function TeachingSection() {
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="rounded-[28px] border border-line bg-white/[0.03] p-6">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">Activities</p>
+            <ul className="mt-4 space-y-3">
+              {activities.map((item) => (
+                <li key={item.role} className="flex gap-3 text-sm">
+                  <span className="mt-[0.4rem] h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  <span>
+                    <span className="font-medium text-slate-200">{item.role}</span>
+                    <span className="text-muted"> — {item.organization}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </Container>

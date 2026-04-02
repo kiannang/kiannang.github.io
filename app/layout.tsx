@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Manrope } from "next/font/google";
+import { IBM_Plex_Mono, Manrope, Pacifico } from "next/font/google";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -11,6 +11,12 @@ const mono = IBM_Plex_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   weight: ["400", "500"],
+});
+
+const pacifico = Pacifico({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -38,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${manrope.variable} ${mono.variable} bg-background font-sans text-foreground antialiased`}>
+      <body className={`${manrope.variable} ${mono.variable} ${pacifico.variable} bg-background font-sans text-foreground antialiased`}>
         {children}
       </body>
     </html>

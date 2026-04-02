@@ -12,7 +12,7 @@ export function Hero() {
 
   return (
     <Container id="home" className="px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-14">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(131,153,88,0.16),transparent_24%),radial-gradient(circle_at_82%_30%,rgba(211,150,140,0.12),transparent_22%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(255,58,145,0.16),transparent_24%),radial-gradient(circle_at_82%_30%,rgba(255,58,145,0.10),transparent_22%)]" />
       <div className="absolute right-10 top-10 hidden h-20 w-20 rounded-full border border-accent/20 bg-accent/10 blur-2xl lg:block" />
 
       <div className="relative grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
@@ -29,7 +29,7 @@ export function Hero() {
             </div>
             <div className="space-y-5">
               <p className="font-mono text-xs uppercase tracking-[0.32em] text-muted">Researcher / Engineer</p>
-              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              <h1 className="max-w-4xl font-display text-5xl text-foreground sm:text-6xl lg:text-7xl">
                 Kianna Ng
               </h1>
               <div className="space-y-3 text-base text-muted sm:text-lg">
@@ -37,10 +37,10 @@ export function Hero() {
                   PhD Student in Electrical Engineering and Computer Science at the University of California, Merced.
                 </p>
                 <p className="max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
-                  I build human-centered AI systems for perception, safety, and intelligent interaction.
+                  I build computer vision and perception systems for autonomous driving safety and human-centered AI.
                 </p>
                 <p className="max-w-2xl leading-8">
-                  My work spans multimodal learning, robotics, sensing systems, autonomous systems, and trustworthy AI.
+                  My work spans robotic perception, multitask representation learning, multimodal sensing, and intelligent systems.
                 </p>
               </div>
             </div>
@@ -48,8 +48,8 @@ export function Hero() {
 
           <div className="flex flex-wrap gap-3">
             <Link
-              href="#work"
-              className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent px-5 py-3 text-sm font-medium text-[#0a201f] hover:translate-y-[-1px] hover:bg-[#e1aea5]"
+              href="#publications"
+              className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent px-5 py-3 text-sm font-medium text-white hover:translate-y-[-1px] hover:bg-accent/80"
             >
               View Work
               <ArrowRight className="h-4 w-4" />
@@ -76,17 +76,17 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           className="relative overflow-hidden rounded-[28px] border border-white/10 bg-panelStrong p-6 shadow-glow"
         >
-          <div className="absolute inset-0 bg-[linear-gradient(140deg,rgba(131,153,88,0.10),transparent_40%,rgba(211,150,140,0.08))]" />
+          <div className="absolute inset-0 bg-[linear-gradient(140deg,rgba(255,58,145,0.10),transparent_40%,rgba(255,58,145,0.06))]" />
           <div className="relative space-y-6">
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-start gap-4">
-                <div className="relative h-20 w-20 overflow-hidden rounded-[22px] border border-accent/20 bg-white/5">
+                <div className="relative h-24 w-24 overflow-hidden rounded-[22px] border border-accent/20 bg-white/5">
                   <Image
                     src="/images/kianna_headshot.png"
                     alt="Headshot of Kianna Ng"
                     fill
-                    className="object-cover"
-                    sizes="80px"
+                    className="object-cover object-top"
+                    sizes="96px"
                     priority
                   />
                 </div>

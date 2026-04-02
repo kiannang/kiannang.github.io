@@ -1,7 +1,7 @@
 export const skillGroups = [
   {
     title: "Languages",
-    items: ["Python", "C++", "JavaScript", "TypeScript"],
+    items: ["Python", "C++", "Java", "JavaScript"],
   },
   {
     title: "ML / AI",
@@ -9,14 +9,14 @@ export const skillGroups = [
   },
   {
     title: "Robotics / Systems",
-    items: ["ROS2", "Arduino", "LoRa", "Sensors", "Linux"],
+    items: ["ROS2", "Arduino", "LoRa", "Slurm", "Linux"],
   },
   {
-    title: "Web / Software",
-    items: ["Next.js", "Tailwind CSS", "Flask", "Git", "Slack API"],
+    title: "Frameworks / Tools",
+    items: ["Flask", "Git", "Slack API", "WebSocket"],
   },
   {
-    title: "Research / Workflow",
-    items: ["Human-subject Studies", "Data Collection", "Experiment Design", "Technical Documentation", "Literature Review"],
+    title: "Research",
+    items: ["Human-Subject Studies", "Experiment Design", "Data Collection", "Technical Documentation"],
   },
 ];

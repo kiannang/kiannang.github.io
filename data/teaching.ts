@@ -2,8 +2,19 @@ export const teaching = [
   {
     title: "Teaching Assistant",
     organization: "University of California, Merced",
-    period: "2025 - Present",
+    period: "2025 – Present",
     courses: ["Algorithm Design and Analysis", "Discrete Mathematics"],
-    summary: "Led discussion sections, held office hours, and supported grading for core computer science courses.",
+    summary: "Led weekly discussions, held office hours, and graded programming assignments.",
+  },
+];
+
+export const activities = [
+  {
+    role: "Speaker / Outreach Volunteer",
+    organization: "Society of Women Engineers (SWE)",
+  },
+  {
+    role: "Historian / Photographer",
+    organization: "Hmong Student Association",
   },
 ];

@@ -30,7 +30,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-manrope)"],
-        mono: ["var(--font-mono)"]
+        mono: ["var(--font-mono)"],
+        display: ["var(--font-display)"],
       }
     }
   },
