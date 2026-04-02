@@ -14,6 +14,7 @@ export type PostMeta = {
   tags: string[];
   image?: string;
   imageCredit?: string;
+  imagePosition?: string;
 };
 
 export type Post = PostMeta & {
@@ -38,6 +39,7 @@ export function getAllPosts(): PostMeta[] {
         tags: data.tags ?? [],
         image: data.image,
         imageCredit: data.imageCredit,
+        imagePosition: data.imagePosition,
       };
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -58,6 +60,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     tags: data.tags ?? [],
     image: data.image,
     imageCredit: data.imageCredit,
+    imagePosition: data.imagePosition,
     contentHtml: processed.toString(),
   };
 }

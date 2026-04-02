@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Link2, Check } from "lucide-react";
 
-export function ShareButton({ title }: { title: string }) {
+export function ShareButton() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -22,14 +22,6 @@ export function ShareButton({ title }: { title: string }) {
         {copied ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />}
         {copied ? "Copied!" : "Copy link"}
       </button>
-      <a
-        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`}
-        target="_blank"
-        rel="noreferrer"
-        className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-medium text-muted hover:border-accent/40 hover:text-foreground"
-      >
-        Share on X
-      </a>
     </div>
   );
 }

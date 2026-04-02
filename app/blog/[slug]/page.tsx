@@ -63,6 +63,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                   alt={post.title}
                   fill
                   className="object-cover"
+                  style={{ objectPosition: post.imagePosition ?? "center" }}
                   sizes="(max-width: 768px) 100vw, 768px"
                 />
               </div>
@@ -83,7 +84,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           {/* 9. Share */}
           <div className="border-t border-line pt-8 space-y-3">
             <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted">Share this post</p>
-            <ShareButton title={post.title} />
+            <ShareButton />
           </div>
 
         </div>
