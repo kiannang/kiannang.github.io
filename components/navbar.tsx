@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "#home", label: "Home", id: "home" },
-  { href: "#focus", label: "Focus", id: "focus" },
   { href: "#publications", label: "Publications", id: "publications" },
   { href: "#experience", label: "Experience", id: "experience" },
   { href: "#contact", label: "Contact", id: "contact" },
@@ -68,13 +67,7 @@ export function Navbar() {
   return (
     <header className={navClass}>
       <Link href="#home" className="group flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-accent/20 bg-accentSoft text-sm font-medium text-accent">
-          KN
-        </div>
-        <div className="hidden sm:block">
-          <div className="text-sm font-semibold tracking-tight text-foreground">Kianna Ng</div>
-          <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">Research Portfolio</div>
-        </div>
+        <span className="font-display text-2xl text-accent">Kianna Ng</span>
       </Link>
 
       <nav className="hidden items-center gap-1 md:flex">

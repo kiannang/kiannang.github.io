@@ -32,7 +32,16 @@ const config: Config = {
         sans: ["var(--font-manrope)"],
         mono: ["var(--font-mono)"],
         display: ["var(--font-display)"],
-      }
+      },
+      animation: {
+        marquee: "marquee 35s linear infinite",
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: "translateX(0%)" },
+          to: { transform: "translateX(-50%)" },
+        },
+      },
     }
   },
   plugins: []

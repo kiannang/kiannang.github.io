@@ -7,58 +7,65 @@ import { Reveal } from "@/components/ui/reveal";
 export function ContactSection() {
   return (
     <Reveal>
-      <Container id="contact" className="px-6 py-8 sm:px-8 sm:py-10 lg:px-10">
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div className="space-y-5">
+      <Container id="contact" className="px-6 py-10 sm:px-8 sm:py-14 lg:px-12 lg:py-20">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+
+          <div className="space-y-6">
             <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">/ contact</p>
-            <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">Let&apos;s connect.</h2>
-            <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              Interested in collaboration or learning more about my work? Feel free to reach out.
+            <h2 className="leading-none">
+              <span className="block text-5xl font-black text-foreground sm:text-6xl lg:text-7xl">
+                Nice to
+              </span>
+              <span className="block font-display text-6xl text-accent sm:text-7xl lg:text-8xl">
+                Meet You.
+              </span>
+            </h2>
+            <p className="max-w-md text-lg leading-8 text-muted">
+              Interested in collaboration or learning more about my work? I&apos;d love to hear from you.
             </p>
-          </div>
 
-          <div className="rounded-[28px] border border-line bg-white/[0.03] p-6">
-            <div className="grid gap-3">
-              <div className="rounded-[22px] border border-line bg-panelStrong p-4">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">Primary contact</p>
-                <p className="mt-2 text-sm leading-7 text-slate-200">{site.email}</p>
-              </div>
-
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  href={`mailto:${site.email}`}
-                  className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accentSoft px-4 py-3 text-sm text-foreground hover:border-accent/50"
-                >
-                  <Mail className="h-4 w-4" />
-                  Email
-                </Link>
-                <Link
-                  href={site.links.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-3 text-sm text-muted hover:border-accent/30 hover:text-foreground"
-                >
-                  <Github className="h-4 w-4" />
-                  GitHub
-                </Link>
-                <Link
-                  href={site.links.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-3 text-sm text-muted hover:border-accent/30 hover:text-foreground"
-                >
-                  <Linkedin className="h-4 w-4" />
-                  LinkedIn
-                </Link>
-                <Link
-                  href="/resume/CV.pdf"
-                  className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accentSoft px-4 py-3 text-sm text-foreground hover:border-accent/50"
-                >
-                  View CV
-                </Link>
-              </div>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Link
+                href={`mailto:${site.email}`}
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-[#3e2723] hover:bg-accent/80"
+              >
+                <Mail className="h-4 w-4" />
+                Email Me
+              </Link>
+              <Link
+                href={site.links.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accentSoft px-5 py-3 text-sm font-medium text-foreground hover:border-accent/60"
+              >
+                <Linkedin className="h-4 w-4" />
+                LinkedIn
+              </Link>
+              <Link
+                href={site.links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 text-sm font-medium text-muted hover:border-accent/30 hover:text-foreground"
+              >
+                <Github className="h-4 w-4" />
+                GitHub
+              </Link>
             </div>
           </div>
+
+          <div className="rounded-[32px] border border-accent/20 bg-accentSoft p-8 space-y-4">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">Reach me at</p>
+            <p className="text-xl font-semibold text-foreground">{site.email}</p>
+            <div className="pt-2">
+              <Link
+                href="/resume/CV.pdf"
+                className="inline-flex items-center gap-2 rounded-full border border-accent/30 px-5 py-3 text-sm font-medium text-foreground hover:border-accent/60 hover:bg-accentSoft"
+              >
+                View Full CV
+              </Link>
+            </div>
+          </div>
+
         </div>
       </Container>
     </Reveal>
