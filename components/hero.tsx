@@ -51,7 +51,7 @@ export function Hero() {
               <span className="block text-5xl font-black text-foreground sm:text-6xl lg:text-7xl">
                 Hi, I&apos;m
               </span>
-              <span className="block font-display text-6xl text-accent sm:text-7xl lg:text-8xl">
+              <span className="block font-display italic text-6xl text-foreground sm:text-7xl lg:text-8xl">
                 Kianna Ng.
               </span>
             </h1>
@@ -69,7 +69,7 @@ export function Hero() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="#publications"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-[#3e2723] hover:bg-accent/80"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-[#f4c9d6] hover:bg-accent/80"
             >
               View Work
               <ArrowRight className="h-4 w-4" />

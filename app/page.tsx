@@ -12,7 +12,7 @@ export default function HomePage() {
   return (
     <div className="relative min-h-screen overflow-x-clip">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(244,201,214,0.12),transparent_40%),radial-gradient(circle_at_bottom_left,rgba(244,201,214,0.08),transparent_40%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.3),transparent_40%),radial-gradient(circle_at_bottom_left,rgba(62,39,35,0.04),transparent_40%)]" />
       </div>
 
       <Navbar />

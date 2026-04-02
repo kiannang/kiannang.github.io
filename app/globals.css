@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #3e2723;
-  --foreground: #fce8ee;
-  --muted: rgba(244, 201, 214, 0.55);
-  --line: rgba(244, 201, 214, 0.18);
-  --panel: rgba(50, 28, 24, 0.85);
-  --panel-strong: rgba(38, 20, 17, 0.96);
-  --accent: #f4c9d6;
-  --accent-soft: rgba(244, 201, 214, 0.13);
+  --background: #f4c9d6;
+  --foreground: #1c0f0d;
+  --muted: rgba(28, 15, 13, 0.5);
+  --line: rgba(28, 15, 13, 0.15);
+  --panel: rgba(255, 255, 255, 0.45);
+  --panel-strong: rgba(255, 255, 255, 0.7);
+  --accent: #3e2723;
+  --accent-soft: rgba(255, 255, 255, 0.6);
 }
 
 * {
@@ -27,14 +27,19 @@ body {
   color: var(--foreground);
 }
 
-/* Warm the hardcoded slate grays to match the espresso theme */
-.text-slate-100 { color: #fce8ee !important; }
-.text-slate-200 { color: rgba(252, 232, 238, 0.88) !important; }
-.text-slate-300 { color: rgba(252, 232, 238, 0.70) !important; }
+/* Warm the hardcoded slate grays for light mode */
+.text-slate-100 { color: rgba(28, 15, 13, 0.95) !important; }
+.text-slate-200 { color: rgba(28, 15, 13, 0.80) !important; }
+.text-slate-300 { color: rgba(28, 15, 13, 0.60) !important; }
+
+/* Boost white overlay panels so they show on the pink background */
+.bg-white\/\[0\.03\] { background-color: rgba(255, 255, 255, 0.45) !important; }
+.bg-white\/5 { background-color: rgba(255, 255, 255, 0.55) !important; }
+.bg-white\/\[0\.02\] { background-color: rgba(255, 255, 255, 0.4) !important; }
 
 ::selection {
-  background: rgba(244, 201, 214, 0.35);
-  color: #3e2723;
+  background: rgba(62, 39, 35, 0.18);
+  color: #1c0f0d;
 }
 
 a,
@@ -49,7 +54,7 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid rgba(244, 201, 214, 0.92);
+  outline: 2px solid rgba(62, 39, 35, 0.7);
   outline-offset: 3px;
 }
 

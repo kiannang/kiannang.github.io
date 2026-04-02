@@ -14,12 +14,12 @@ const items = [...keywords, ...keywords];
 
 export function Marquee() {
   return (
-    <div className="overflow-hidden bg-[#f4c9d6] py-4">
+    <div className="overflow-hidden bg-[#3e2723] py-4">
       <div className="flex animate-marquee gap-0 whitespace-nowrap">
         {items.map((item, i) => (
           <span
             key={i}
-            className="font-mono text-xs uppercase tracking-[0.22em] text-[#3e2723]"
+            className="font-mono text-xs uppercase tracking-[0.22em] text-[#f4c9d6]"
           >
             {item}
             <span className="mx-8 opacity-40">✦</span>

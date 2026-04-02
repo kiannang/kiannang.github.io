@@ -67,7 +67,7 @@ export function Navbar() {
   return (
     <header className={navClass}>
       <Link href="#home" className="group flex items-center gap-3">
-        <span className="font-display text-2xl text-accent">Kianna Ng</span>
+        <span className="font-display italic text-2xl text-accent">Kianna Ng</span>
       </Link>
 
       <nav className="hidden items-center gap-1 md:flex">

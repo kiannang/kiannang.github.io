@@ -16,7 +16,7 @@ export function ContactSection() {
               <span className="block text-5xl font-black text-foreground sm:text-6xl lg:text-7xl">
                 Nice to
               </span>
-              <span className="block font-display text-6xl text-accent sm:text-7xl lg:text-8xl">
+              <span className="block font-display italic text-6xl text-foreground sm:text-7xl lg:text-8xl">
                 Meet You.
               </span>
             </h2>
@@ -27,7 +27,7 @@ export function ContactSection() {
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
                 href={`mailto:${site.email}`}
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-[#3e2723] hover:bg-accent/80"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-[#f4c9d6] hover:bg-accent/80"
               >
                 <Mail className="h-4 w-4" />
                 Email Me
