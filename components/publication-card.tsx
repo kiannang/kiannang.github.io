@@ -65,9 +65,6 @@ export function PublicationCard() {
                       DOI
                       <ArrowUpRight className="h-4 w-4" />
                     </Link>
-                    <span className="inline-flex items-center rounded-full border border-line px-4 py-2 text-sm text-muted">
-                      Citation available on request
-                    </span>
                   </div>
                 </div>
               </div>
