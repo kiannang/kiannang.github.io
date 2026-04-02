@@ -14,8 +14,8 @@ export function PublicationCard() {
         <div className="space-y-8">
           <SectionHeader
             label="/ publications"
-            title="Recent published work."
-            description="Peer-reviewed research in multimodal learning and intelligent systems."
+            title="Publications"
+            description="Published work and public research contributions."
           />
 
           <article className="rounded-[30px] border border-accent/20 bg-[linear-gradient(145deg,rgba(124,199,255,0.1),rgba(255,255,255,0.03)_38%,rgba(126,120,255,0.08))] p-6 sm:p-8">

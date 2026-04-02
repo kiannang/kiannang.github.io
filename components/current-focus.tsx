@@ -18,13 +18,10 @@ export function CurrentFocus() {
             <div className="rounded-[28px] border border-accent/20 bg-accentSoft p-6">
               <p className="font-mono text-[11px] uppercase tracking-[0.26em] text-accent">Overview</p>
               <p className="mt-4 max-w-xl text-lg leading-8 text-slate-100">
-                I&apos;m currently involved in ongoing research across multimodal learning, perception, intelligent
-                systems, and human-centered AI. I share high-level themes here, as some current work is under
-                review or awaiting publication.
+                I&apos;m currently working on research related to multimodal learning, perception, and human-centered AI.
+                Some of that work is still in progress or under review, so I keep this section fairly high level.
               </p>
-              <p className="mt-4 text-sm leading-7 text-slate-300">
-                Additional details about ongoing work may be available upon request where appropriate.
-              </p>
+              <p className="mt-4 text-sm leading-7 text-slate-300">I&apos;m happy to share more context when appropriate.</p>
             </div>
 
             {focusPanels.slice(0, 2).map((panel) => (

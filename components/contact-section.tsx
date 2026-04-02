@@ -13,15 +13,11 @@ export function ContactSection() {
           <div className="space-y-6">
             <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">/ contact</p>
             <h2 className="leading-none">
-              <span className="block text-5xl font-black text-foreground sm:text-6xl lg:text-7xl">
-                Nice to
-              </span>
-              <span className="block font-display italic text-6xl text-foreground sm:text-7xl lg:text-8xl">
-                Meet You.
-              </span>
+              <span className="block text-5xl font-black text-foreground sm:text-6xl lg:text-7xl">Get in</span>
+              <span className="block font-display italic text-6xl text-foreground sm:text-7xl lg:text-8xl">Touch.</span>
             </h2>
             <p className="max-w-md text-lg leading-8 text-muted">
-              Interested in collaboration or learning more about my work? I&apos;d love to hear from you.
+              If you&apos;d like to talk about research, collaboration, or anything on the site, feel free to reach out.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
@@ -54,7 +50,7 @@ export function ContactSection() {
           </div>
 
           <div className="rounded-[32px] border border-accent/20 bg-accentSoft p-8 space-y-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">Reach me at</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">Email</p>
             <p className="text-xl font-semibold text-foreground">{site.email}</p>
             <div className="pt-2">
               <Link

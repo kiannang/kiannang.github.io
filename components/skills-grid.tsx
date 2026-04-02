@@ -10,8 +10,8 @@ export function SkillsGrid() {
         <div className="space-y-8">
           <SectionHeader
             label="/ skills and tools"
-            title="Tools, methods, and working languages."
-            description="The tools and workflows I use most across research, engineering, and implementation."
+            title="Skills and tools"
+            description="The tools I use most often in research and technical work."
           />
 
           <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-5">

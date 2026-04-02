@@ -10,8 +10,8 @@ export function TeachingSection() {
         <div className="space-y-8">
           <SectionHeader
             label="/ teaching"
-            title="Teaching and course support."
-            description="Current teaching work alongside my research and technical projects."
+            title="Teaching"
+            description="Teaching work I've done alongside research."
           />
 
           <div className="grid gap-4">

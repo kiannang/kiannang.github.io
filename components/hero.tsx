@@ -12,8 +12,6 @@ export function Hero() {
   return (
     <Container id="home" className="px-6 py-10 sm:px-8 sm:py-14 lg:px-12 lg:py-20">
       <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
-
-        {/* Photo */}
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, x: -20 }}
           animate={reduceMotion ? {} : { opacity: 1, x: 0 }}
@@ -31,7 +29,6 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Text */}
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={reduceMotion ? {} : { opacity: 1, y: 0 }}
@@ -44,25 +41,22 @@ export function Hero() {
           </div>
 
           <div className="space-y-1">
-            <p className="font-mono text-xs uppercase tracking-[0.32em] text-muted">
-              PhD Student · UC Merced
-            </p>
+            <p className="font-mono text-xs uppercase tracking-[0.32em] text-muted">PhD Student · UC Merced</p>
             <h1 className="leading-none">
-              <span className="block text-5xl font-black text-foreground sm:text-6xl lg:text-7xl">
-                Hi, I&apos;m
-              </span>
+              <span className="block text-5xl font-black text-foreground sm:text-6xl lg:text-7xl">Hi, I&apos;m</span>
               <span className="block font-display italic text-6xl text-foreground sm:text-7xl lg:text-8xl">
                 Kianna Ng.
               </span>
             </h1>
           </div>
 
-          <div className="space-y-3 max-w-xl">
+          <div className="max-w-xl space-y-3">
             <p className="text-xl font-medium leading-8 text-foreground sm:text-2xl">
-              I build computer vision and perception systems for autonomous driving safety and human-centered AI.
+              I work on computer vision, robotic perception, and human-centered AI.
             </p>
             <p className="text-base leading-8 text-muted">
-              My work spans robotic perception, multitask representation learning, multimodal sensing, and intelligent systems.
+              Lately, I&apos;ve been especially interested in autonomous driving safety, multimodal sensing, and learning
+              systems in real-world settings.
             </p>
           </div>
 
@@ -89,7 +83,6 @@ export function Hero() {
             </Link>
           </div>
         </motion.div>
-
       </div>
     </Container>
   );

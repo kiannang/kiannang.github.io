@@ -6,24 +6,24 @@ export const focusPanels = [
     label: "Theme 01",
     title: "Multimodal representation learning",
     description:
-      "Studying how multiple signals can support stronger perception and machine reasoning.",
+      "Looking at how different signals can work together to support perception and learning.",
   },
   {
     label: "Theme 02",
     title: "Perception and intelligent systems",
     description:
-      "Working across sensing, inference, and systems integration for reliable intelligent behavior.",
+      "Thinking about sensing, inference, and system design together rather than in isolation.",
   },
   {
     label: "Theme 03",
     title: "Human-centered AI",
     description:
-      "Building AI systems that are usable, legible, and grounded in human needs.",
+      "Caring about how technical systems are understood, used, and experienced by people.",
   },
   {
     label: "Theme 04",
     title: "Sensing and embodied systems",
     description:
-      "Current interests also include how sensor-driven and embodied systems behave in context, especially when perception and decision-making are tied to the physical world.",
+      "An interest in systems where perception, sensing, and real environments all shape the outcome.",
   },
 ];

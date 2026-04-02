@@ -10,8 +10,8 @@ export function ExperienceTimeline() {
         <div className="space-y-8">
           <SectionHeader
             label="/ experience"
-            title="Research and engineering experience across labs and systems."
-            description="A mix of research, engineering, and hands-on systems work across labs and academic projects."
+            title="Experience"
+            description="Research roles, engineering work, and lab experience across a few different settings."
           />
 
           <div className="relative space-y-5 before:absolute before:left-4 before:top-2 before:hidden before:h-[calc(100%-1rem)] before:w-px before:bg-line lg:before:block">
