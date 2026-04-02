@@ -14,6 +14,8 @@ const navItems = [
   { href: "#contact", label: "Contact", id: "contact" },
 ];
 
+const blogHref = "/blog";
+
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -83,6 +85,12 @@ export function Navbar() {
             {item.label}
           </Link>
         ))}
+        <Link
+          href={blogHref}
+          className="rounded-full px-4 py-2 text-sm text-muted hover:text-foreground"
+        >
+          Blog
+        </Link>
       </nav>
 
       <div className="hidden items-center gap-2 md:flex">
@@ -145,6 +153,13 @@ export function Navbar() {
                   {item.label}
                 </Link>
               ))}
+              <Link
+                href={blogHref}
+                onClick={() => setMenuOpen(false)}
+                className="rounded-2xl px-4 py-3 text-sm text-muted hover:bg-white/5 hover:text-foreground"
+              >
+                Blog
+              </Link>
             </div>
             <div className="mt-3 flex items-center gap-2 border-t border-line pt-3">
               <Link
