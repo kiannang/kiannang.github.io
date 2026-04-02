@@ -11,7 +11,7 @@ export function ResearchAreas() {
           <SectionHeader
             label="/ research areas"
             title="Themes that shape the work."
-            description="Rather than centering confidential project details, this portfolio highlights the research directions, methods, and systems questions that organize my work."
+            description="These are the main areas that shape how I think, build, and approach research."
           />
 
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">

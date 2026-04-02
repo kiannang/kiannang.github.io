@@ -14,16 +14,13 @@ export default function BlogPage() {
 
       <main className="mx-auto w-full max-w-4xl px-4 pb-20 pt-32 sm:px-6 lg:px-8">
         <div className="space-y-12">
-
           <div className="space-y-3">
             <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">/ blog</p>
             <h1 className="leading-none">
               <span className="block text-5xl font-black text-foreground sm:text-6xl">Writing &</span>
               <span className="block font-display italic text-6xl text-foreground sm:text-7xl">Thinking.</span>
             </h1>
-            <p className="max-w-xl text-lg text-muted">
-              Notes on research, ideas, and whatever else is on my mind.
-            </p>
+            <p className="max-w-xl text-lg text-muted">Notes on research, ideas, and whatever else is on my mind.</p>
           </div>
 
           {posts.length === 0 ? (
@@ -34,7 +31,7 @@ export default function BlogPage() {
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group flex items-start justify-between gap-6 rounded-[28px] border border-line bg-accentSoft p-6 hover:border-accent/40 transition-all"
+                  className="group flex items-start justify-between gap-6 rounded-[28px] border border-line bg-accentSoft p-6 transition-all hover:border-accent/40"
                 >
                   {post.image && (
                     <div className="relative mb-4 aspect-[16/9] w-full overflow-hidden rounded-[20px]">
@@ -59,7 +56,7 @@ export default function BlogPage() {
                           </span>
                         ))}
                       </div>
-                      <h2 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">
+                      <h2 className="text-2xl font-bold text-foreground transition-colors group-hover:text-accent">
                         {post.title}
                       </h2>
                       <p className="text-sm leading-7 text-muted">{post.description}</p>
@@ -71,13 +68,12 @@ export default function BlogPage() {
                         })}
                       </p>
                     </div>
-                    <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-muted group-hover:text-accent transition-colors" />
+                    <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-muted transition-colors group-hover:text-accent" />
                   </div>
                 </Link>
               ))}
             </div>
           )}
-
         </div>
       </main>
 

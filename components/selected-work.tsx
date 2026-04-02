@@ -21,7 +21,7 @@ export function SelectedWork() {
           <SectionHeader
             label="/ selected public work"
             title="Public-facing work, presented with restraint."
-            description="This section focuses on work that is appropriate to share publicly: selected research contributions, technical systems work, and engineering roles that reflect how I think and build."
+            description="A few public projects and contributions that give a sense of how I work."
           />
 
           <div className="grid gap-4 xl:grid-cols-2">

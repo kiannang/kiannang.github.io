@@ -11,7 +11,7 @@ export function SkillsGrid() {
           <SectionHeader
             label="/ skills and tools"
             title="Tools, methods, and working languages."
-            description="The emphasis here is breadth with structure: machine learning and perception work, robotics and sensing systems, software implementation, and research workflow support."
+            description="The tools and workflows I use most across research, engineering, and implementation."
           />
 
           <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-5">

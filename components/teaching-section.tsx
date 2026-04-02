@@ -11,7 +11,7 @@ export function TeachingSection() {
           <SectionHeader
             label="/ teaching"
             title="Teaching and course support."
-            description="A compact snapshot of current teaching responsibilities alongside research and technical work."
+            description="Current teaching work alongside my research and technical projects."
           />
 
           <div className="grid gap-4">

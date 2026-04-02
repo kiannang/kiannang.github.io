@@ -1,6 +1,6 @@
 # Kianna Ng Portfolio
 
-A dark, research-forward portfolio site built with Next.js App Router, TypeScript, Tailwind CSS, Framer Motion, and Lucide React.
+A portfolio and blog built with Next.js App Router, TypeScript, Tailwind CSS, Framer Motion, and Lucide React.
 
 ## Stack
 
@@ -14,6 +14,7 @@ A dark, research-forward portfolio site built with Next.js App Router, TypeScrip
 
 ```text
 app/
+  blog/
   globals.css
   layout.tsx
   page.tsx
@@ -23,12 +24,15 @@ components/
   experience-timeline.tsx
   footer.tsx
   hero.tsx
+  marquee.tsx
   navbar.tsx
   publication-card.tsx
   research-areas.tsx
   section-header.tsx
   selected-work.tsx
+  share-button.tsx
   skills-grid.tsx
+  teaching-section.tsx
   ui/
 data/
   experience.ts
@@ -38,10 +42,15 @@ data/
   selectedWork.ts
   site.ts
   skills.ts
+  teaching.ts
 lib/
+  posts.ts
   utils.ts
+posts/
+  *.md
 public/
-  resume.pdf
+  images/
+  resume/
 ```
 
 ## Getting Started
@@ -87,7 +96,7 @@ The workflow is defined in `.github/workflows/deploy-pages.yml` and publishes th
 
 ## Customization Notes
 
-- Update the CV file path in the components if you change the current `resume/CV.pdf` location.
+- The live CV is served from `public/resume/CV.pdf`.
 - Update links and profile metadata in `data/site.ts`.
-- If you want to expose an email address publicly, update `components/contact-section.tsx`.
+- Blog posts live in `posts/` and are rendered through `lib/posts.ts`.
 - Edit the content in the `data/` directory without touching the layout components.

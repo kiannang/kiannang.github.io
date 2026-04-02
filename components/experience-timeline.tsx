@@ -11,7 +11,7 @@ export function ExperienceTimeline() {
           <SectionHeader
             label="/ experience"
             title="Research and engineering experience across labs and systems."
-            description="These roles reflect a mix of research support, technical implementation, sensing and robotics workflows, and collaborative engineering in academic settings."
+            description="A mix of research, engineering, and hands-on systems work across labs and academic projects."
           />
 
           <div className="relative space-y-5 before:absolute before:left-4 before:top-2 before:hidden before:h-[calc(100%-1rem)] before:w-px before:bg-line lg:before:block">

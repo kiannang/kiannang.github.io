@@ -20,8 +20,6 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
       <main className="mx-auto w-full max-w-3xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
         <div className="space-y-10">
-
-          {/* Back link */}
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-muted hover:text-foreground"
@@ -30,7 +28,6 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             All posts
           </Link>
 
-          {/* 1. Title + meta */}
           <div className="space-y-4">
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
@@ -42,9 +39,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 </span>
               ))}
             </div>
-            <h1 className="font-display italic text-5xl leading-tight text-foreground sm:text-6xl">
-              {post.title}
-            </h1>
+            <h1 className="font-display italic text-5xl leading-tight text-foreground sm:text-6xl">{post.title}</h1>
             <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
               {new Date(post.date).toLocaleDateString("en-US", {
                 year: "numeric",
@@ -54,7 +49,6 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             </p>
           </div>
 
-          {/* 2. Featured landscape image */}
           {post.image && (
             <div className="space-y-2">
               <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[28px] border border-line">
@@ -67,26 +61,16 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                   sizes="(max-width: 768px) 100vw, 768px"
                 />
               </div>
-              {post.imageCredit && (
-                <p className="text-right font-mono text-[11px] text-muted">
-                  Credit: {post.imageCredit}
-                </p>
-              )}
+              {post.imageCredit && <p className="text-right font-mono text-[11px] text-muted">Credit: {post.imageCredit}</p>}
             </div>
           )}
 
-          {/* 3–8. Post body (intro, headings, content, conclusion) */}
-          <div
-            className="prose-content"
-            dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-          />
+          <div className="prose-content" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
 
-          {/* 9. Share */}
-          <div className="border-t border-line pt-8 space-y-3">
+          <div className="space-y-3 border-t border-line pt-8">
             <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted">Share this post</p>
             <ShareButton />
           </div>
-
         </div>
       </main>
 
