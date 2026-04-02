@@ -14,8 +14,8 @@ export function PublicationCard() {
         <div className="space-y-8">
           <SectionHeader
             label="/ publications"
-            title="A growing record of published work."
-            description="Publications carry particular weight here because not all current research is ready for public release. This section highlights published work and leaves room for the record to expand over time."
+            title="Recent published work."
+            description="Peer-reviewed research in multimodal learning and intelligent systems."
           />
 
           <article className="rounded-[30px] border border-accent/20 bg-[linear-gradient(145deg,rgba(124,199,255,0.1),rgba(255,255,255,0.03)_38%,rgba(126,120,255,0.08))] p-6 sm:p-8">
@@ -44,10 +44,7 @@ export function PublicationCard() {
                   </div>
                   <div>
                     <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">Citation note</p>
-                    <p className="mt-2 text-sm leading-7 text-muted">
-                      Publication details and citation links are included here as a stable public reference point while
-                      current unpublished work remains private.
-                    </p>
+                    <p className="mt-2 text-sm leading-7 text-muted">Available via DOI and institutional repository.</p>
                   </div>
                   <div className="flex flex-wrap gap-3 pt-2">
                     <Link
@@ -77,7 +74,6 @@ export function PublicationCard() {
             </div>
           </article>
 
-          <p className="text-sm text-muted">More publications and ongoing work will be added over time.</p>
         </div>
       </Container>
     </Reveal>

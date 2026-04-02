@@ -1,23 +1,29 @@
 export const focusIntro =
-  "The current portfolio emphasizes research identity, methods, and high-level themes. Some active projects remain unpublished, so the presentation stays intentionally selective while still reflecting the direction and substance of ongoing work.";
+  "Some current projects remain unpublished, so this section focuses on high-level themes rather than detailed case studies.";
 
 export const focusPanels = [
   {
     label: "Theme 01",
     title: "Multimodal representation learning",
     description:
-      "Exploring how signals from different modalities can support more reliable perception, interpretation, and machine reasoning in human-facing contexts.",
+      "Studying how multiple signals can support stronger perception and machine reasoning.",
   },
   {
     label: "Theme 02",
     title: "Perception and intelligent systems",
     description:
-      "Working across sensing, inference, and systems integration to understand how intelligent behavior is shaped by the quality and structure of observations.",
+      "Working across sensing, inference, and systems integration for reliable intelligent behavior.",
   },
   {
     label: "Theme 03",
     title: "Human-centered AI",
     description:
-      "Approaching AI systems not only as technical artifacts, but as tools that must remain legible, safe, and grounded in human use and trust.",
+      "Building AI systems that are usable, legible, and grounded in human needs.",
+  },
+  {
+    label: "Theme 04",
+    title: "Sensing and embodied systems",
+    description:
+      "Current interests also include how sensor-driven and embodied systems behave in context, especially when perception and decision-making are tied to the physical world.",
   },
 ];

@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #05070b;
-  --foreground: #eef2f7;
-  --muted: #9ba7b8;
-  --line: rgba(148, 163, 184, 0.16);
-  --panel: rgba(10, 14, 22, 0.78);
-  --panel-strong: rgba(13, 19, 30, 0.96);
-  --accent: #7cc7ff;
-  --accent-soft: rgba(124, 199, 255, 0.12);
+  --background: #081614;
+  --foreground: #f7f4d5;
+  --muted: #b7bc98;
+  --line: rgba(131, 153, 88, 0.18);
+  --panel: rgba(10, 34, 35, 0.82);
+  --panel-strong: rgba(8, 27, 28, 0.96);
+  --accent: #d3968c;
+  --accent-soft: rgba(211, 150, 140, 0.14);
 }
 
 * {
@@ -28,8 +28,8 @@ body {
 }
 
 ::selection {
-  background: rgba(124, 199, 255, 0.26);
-  color: #f8fbff;
+  background: rgba(211, 150, 140, 0.28);
+  color: #fffbe8;
 }
 
 a,
@@ -44,7 +44,7 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid rgba(124, 199, 255, 0.92);
+  outline: 2px solid rgba(211, 150, 140, 0.92);
   outline-offset: 3px;
 }
 

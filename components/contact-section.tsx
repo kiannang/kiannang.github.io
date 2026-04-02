@@ -13,9 +13,7 @@ export function ContactSection() {
             <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">/ contact</p>
             <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">Let&apos;s connect.</h2>
             <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              Interested in collaboration, research conversations, or learning more about my work? Feel free to reach
-              out. Some current projects are not yet public, but I&apos;m always happy to discuss my interests,
-              background, and experience.
+              Interested in collaboration or learning more about my work? Feel free to reach out.
             </p>
           </div>
 
@@ -23,21 +21,17 @@ export function ContactSection() {
             <div className="grid gap-3">
               <div className="rounded-[22px] border border-line bg-panelStrong p-4">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">Primary contact</p>
-                <p className="mt-2 text-sm leading-7 text-slate-200">
-                  Direct email is intentionally omitted from the public site. Please connect via LinkedIn or GitHub,
-                  and additional contact details can be shared when appropriate.
-                </p>
+                <p className="mt-2 text-sm leading-7 text-slate-200">{site.email}</p>
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  aria-disabled="true"
-                  className="inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-line bg-white/[0.03] px-4 py-3 text-sm text-muted opacity-80"
+                <Link
+                  href={`mailto:${site.email}`}
+                  className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accentSoft px-4 py-3 text-sm text-foreground hover:border-accent/50"
                 >
                   <Mail className="h-4 w-4" />
-                  Email on request
-                </button>
+                  Email
+                </Link>
                 <Link
                   href={site.links.github}
                   target="_blank"
@@ -57,7 +51,7 @@ export function ContactSection() {
                   LinkedIn
                 </Link>
                 <Link
-                  href="/resume.pdf"
+                  href="/resume/CV.pdf"
                   className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accentSoft px-4 py-3 text-sm text-foreground hover:border-accent/50"
                 >
                   View CV

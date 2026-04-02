@@ -19,8 +19,8 @@ export function CurrentFocus() {
               <p className="font-mono text-[11px] uppercase tracking-[0.26em] text-accent">Overview</p>
               <p className="mt-4 max-w-xl text-lg leading-8 text-slate-100">
                 I&apos;m currently involved in ongoing research across multimodal learning, perception, intelligent
-                systems, and human-centered AI. Because some of this work is not yet published, I share high-level
-                themes here rather than detailed case studies.
+                systems, and human-centered AI. I share high-level themes here, as some current work is under
+                review or awaiting publication.
               </p>
               <p className="mt-4 text-sm leading-7 text-slate-300">
                 Additional details about ongoing work may be available upon request where appropriate.
@@ -44,14 +44,6 @@ export function CurrentFocus() {
                 <p className="mt-3 text-sm leading-7 text-muted">{panel.description}</p>
               </div>
             ))}
-            <div className="rounded-[28px] border border-line bg-white/[0.03] p-6">
-              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent">Theme 04</p>
-              <h3 className="mt-4 text-xl font-semibold text-foreground">Sensing and embodied systems</h3>
-              <p className="mt-3 text-sm leading-7 text-muted">
-                Current interests also include how sensor-driven and embodied systems behave in context, especially when
-                perception and decision-making are tied to the physical world.
-              </p>
-            </div>
           </div>
         </div>
       </Container>

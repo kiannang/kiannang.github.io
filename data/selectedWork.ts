@@ -5,9 +5,9 @@ export const selectedWork = [
     category: "Robotics / Agriculture / Sensing",
     role: "Undergraduate Student Researcher",
     summary:
-      "Contributed to sensing, ROS2-based workflows, infrared image analysis, LoRa communication, and field robotics experimentation for precision agriculture contexts.",
+      "Worked on sensing, ROS2 workflows, infrared image analysis, LoRa communication, and field robotics.",
     details:
-      "This work brought together data collection, embedded communication, and applied machine learning in a field robotics setting. The emphasis was on practical systems integration, experimental workflow support, and making sensor data useful in real operating conditions.",
+      "Combined data collection, embedded communication, and applied ML in a field robotics setting.",
     tools: ["Python", "ROS2", "TensorFlow", "Arduino", "LoRa"],
     cta: {
       label: "View Experience",
@@ -21,9 +21,9 @@ export const selectedWork = [
     category: "Software / Applied AI",
     role: "Backend Developer",
     summary:
-      "Helped build chatbot tools for internal and external use, integrating document-aware responses and conversational interfaces.",
+      "Built chatbot tools for internal and external use with document-aware responses.",
     details:
-      "The project focused on practical backend implementation: connecting model-driven interactions to evolving information sources, supporting internal workflow needs, and shipping interfaces that could be used by different audiences.",
+      "Focused on backend implementation, data-connected responses, and practical workflow support.",
     tools: ["Python", "Flask", "OpenAI API", "Slack API"],
     cta: {
       label: "View Experience",
@@ -37,9 +37,9 @@ export const selectedWork = [
     category: "HCI / Human Factors",
     role: "Undergraduate Student Volunteer / Research Support",
     summary:
-      "Contributed to research and study support for work published at CHI 2024 investigating scent and text composition and transcription performance.",
+      "Supported research operations for work later published at CHI 2024.",
     details:
-      "My contribution centered on participant coordination, study support, and helping sustain the experimental workflow behind a publication in a leading HCI venue. It reflects an interest in careful research execution alongside technical systems work.",
+      "Contributed participant coordination and study support for an HCI publication workflow.",
     tools: ["Human-Subject Studies", "Experimental Support", "Research Coordination"],
     cta: {
       label: "View Publication",
@@ -53,9 +53,14 @@ export const selectedWork = [
     category: "Web / Research Support",
     role: "Website Developer / Student Assistant",
     summary:
-      "Supported research communication and reporting workflows through website updates, documentation, and structured reporting support.",
+      "Supported research communication through website updates and documentation.",
     details:
-      "Although less research-facing than lab roles, this work built experience in structured communication, information stewardship, and maintaining public-facing materials for academic programs and reporting cycles.",
+      "Focused on public-facing updates, documentation, and structured reporting support.",
     tools: ["HTML", "Documentation", "Reporting", "Web Maintenance"],
+    cta: {
+      label: "View Experience",
+      href: "#experience",
+      external: false,
+    },
   },
 ];

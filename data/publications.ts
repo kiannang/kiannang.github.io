@@ -6,7 +6,7 @@ export const publications = [
     fullVenue: "Proceedings of the CHI Conference on Human Factors in Computing Systems",
     year: "2024",
     summary:
-      "A CHI 2024 publication examining how self-selected pleasant scents may influence text composition and transcription performance, situated within human factors and interaction research.",
+      "A CHI 2024 paper on self-selected pleasant scents and text composition and transcription performance.",
     links: {
       paper: "https://doi.org/10.1145/3613904.3642445",
       doi: "https://doi.org/10.1145/3613904.3642445",

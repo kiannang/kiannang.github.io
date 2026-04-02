@@ -87,7 +87,7 @@ The workflow is defined in `.github/workflows/deploy-pages.yml` and publishes th
 
 ## Customization Notes
 
-- Replace `public/resume.pdf` with the current CV before publishing.
+- Update the CV file path in the components if you change the current `resume/CV.pdf` location.
 - Update links and profile metadata in `data/site.ts`.
 - If you want to expose an email address publicly, update `components/contact-section.tsx`.
 - Edit the content in the `data/` directory without touching the layout components.

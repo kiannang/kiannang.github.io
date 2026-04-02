@@ -113,7 +113,7 @@ export function Navbar() {
           <Linkedin className="h-4 w-4" />
         </Link>
         <Link
-          href="/resume.pdf"
+          href="/resume/CV.pdf"
           className="rounded-full border border-accent/30 bg-accentSoft px-4 py-2 text-sm font-medium text-foreground hover:border-accent/60 hover:bg-white/10"
         >
           CV
@@ -173,7 +173,7 @@ export function Navbar() {
               >
                 <Linkedin className="h-4 w-4" />
               </Link>
-              <Link href="/resume.pdf" className="ml-auto rounded-full border border-accent/30 bg-accentSoft px-4 py-2 text-sm">
+              <Link href="/resume/CV.pdf" className="ml-auto rounded-full border border-accent/30 bg-accentSoft px-4 py-2 text-sm">
                 CV
               </Link>
             </div>
