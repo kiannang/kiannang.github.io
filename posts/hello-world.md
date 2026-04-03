@@ -5,6 +5,7 @@ description: "A first post — why I'm starting to write, and what you can expec
 tags: ["Updates", "Blog"]
 image: "/images/blog/introduction.JPG"
 imagePosition: "center 62%"
+pinned: true
 ---
 
 Welcome to my little corner of the internet. I'm Kianna, a PhD student at UC Merced working on computer vision, robotic perception, and human-centered AI. I spend most of my time thinking about how machines see the world and how we can make that safer and more useful for people.

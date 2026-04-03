@@ -15,6 +15,7 @@ export type PostMeta = {
   image?: string;
   imageCredit?: string;
   imagePosition?: string;
+  pinned?: boolean;
 };
 
 export type Post = PostMeta & {
@@ -40,9 +41,14 @@ export function getAllPosts(): PostMeta[] {
         image: data.image,
         imageCredit: data.imageCredit,
         imagePosition: data.imagePosition,
+        pinned: data.pinned ?? false,
       };
     })
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort((a, b) => {
+      if (a.pinned && !b.pinned) return -1;
+      if (!a.pinned && b.pinned) return 1;
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
 }
 
 export async function getPostBySlug(slug: string): Promise<Post> {
