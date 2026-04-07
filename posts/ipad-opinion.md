@@ -99,7 +99,7 @@ If you need to:
 
 you’re still going to use your laptop.
 
-Being stuck in the Apple Ecosystem: Since I have both an iPhone and an iPad, I can easily switch FaceTime calls between them or move things around seamlessly, which for me is a plus. But it would be tougher if I did not have Apple products. 
+Being stuck in the Apple Ecosystem: Since I have both an iPhone and an iPad, I can easily switch FaceTime calls between them or move things around seamlessly, which for me is a plus.
 
 ## So… Is It Worth It?
 
