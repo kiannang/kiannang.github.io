@@ -99,7 +99,7 @@ If you need to:
 
 you’re still going to use your laptop.
 
-I do like being in the Apple ecosystem though. Since I have both an iPhone and an iPad, I can easily switch FaceTime calls between them or move things around seamlessly, which makes it feel more integrated into my daily life.
+Being stuck in the Apple Ecosystem: Since I have both an iPhone and an iPad, I can easily switch FaceTime calls between them or move things around seamlessly, which for me is a plus. But it would be tougher if I did not have Apple products. 
 
 ## So… Is It Worth It?
 
