@@ -16,16 +16,19 @@ export function Hero() {
           initial={reduceMotion ? false : { opacity: 0, x: -20 }}
           animate={reduceMotion ? {} : { opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto w-full max-w-[22rem] lg:max-w-none"
         >
-          <div className="relative aspect-[3/4] overflow-hidden rounded-[40px] border border-accent/20">
-            <Image
-              src="/images/kianna_headshot.png"
-              alt="Kianna Ng"
-              fill
-              className="object-cover object-top"
-              sizes="(max-width: 1024px) 100vw, 35vw"
-              priority
-            />
+          <div className="rounded-[42px] border border-accent/20 bg-white/10 p-3 shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[34px] bg-[#efe7df]">
+              <Image
+                src="/images/kianna_headshot.png"
+                alt="Kianna Ng"
+                fill
+                className="object-cover object-[50%_18%] scale-[0.95]"
+                sizes="(max-width: 1024px) 100vw, 35vw"
+                priority
+              />
+            </div>
           </div>
         </motion.div>
 
