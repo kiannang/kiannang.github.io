@@ -1,6 +1,7 @@
 import { ContactSection } from "@/components/contact-section";
 import { ExperienceTimeline } from "@/components/experience-timeline";
 import { Footer } from "@/components/footer";
+import { FunProjects } from "@/components/fun-projects";
 import { Hero } from "@/components/hero";
 import { Marquee } from "@/components/marquee";
 import { Navbar } from "@/components/navbar";
@@ -28,6 +29,7 @@ export default function HomePage() {
         <ExperienceTimeline />
         <TeachingSection />
         <SkillsGrid />
+        <FunProjects />
       </main>
 
       <Marquee />
