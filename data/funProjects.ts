@@ -1,13 +1,13 @@
 export const funProjects = [
   {
     id: "fyfyoshi-byte",
-    title: "fyfyoshi-byte",
+    title: "Guitar Tuner and Scale",
     category: "Fun Project",
     summary:
-      "A playful side project hosted separately from this portfolio.",
+      "A simple guitar tool for tuning up and exploring scales without overcomplicating things.",
     details:
-      "An external project link for visitors who want to see something lighter and more experimental alongside the rest of the site.",
+      "I made this as a small, practical music project. It gives visitors something a little more personal and playful to click into alongside my research and academic work.",
     href: "https://fyfyoshi-byte.github.io/index.html",
-    ctaLabel: "Open Project",
+    ctaLabel: "Try It Out",
   },
 ];

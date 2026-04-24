@@ -14,8 +14,8 @@ export function FunProjects() {
         <div className="space-y-8">
           <SectionHeader
             label="/ fun projects"
-            title="A lighter side of the work."
-            description="A small space for projects that are more playful, experimental, or just fun to share."
+            title="Projects I made for the fun of it."
+            description="A small corner for things that are a little more personal, practical, or playful than the rest of my work."
           />
 
           <div className="grid gap-4">
