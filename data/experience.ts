@@ -38,4 +38,29 @@ export const experience = [
     ],
     tags: ["Python", "Flask", "OpenAI API", "Slack API"],
   },
+  {
+    title: "Undergraduate Student Volunteer",
+    organization: "Inclusive Interactive Lab, UC Merced",
+    period: "Oct 2022 - Dec 2022",
+    summary:
+      "Research support for human-subject studies contributing to a CHI 2024 publication.",
+    bullets: [
+      "Coordinated participant scheduling and study logistics.",
+      "Supported experimental setup and execution across multiple sessions.",
+      "Contributed to work later published at CHI 2024.",
+    ],
+    tags: ["Human Factors", "Study Support", "Research Workflow"],
+  },
+  {
+    title: "Website Developer / Student Assistant",
+    organization: "Merced nAnomaterials Center for Energy and Sensing (MACES)",
+    period: "Dec 2020 - Jan 2022",
+    summary:
+      "Research communication, reporting, and web maintenance.",
+    bullets: [
+      "Updated academic and lab websites to keep public materials current.",
+      "Compiled documentation for research reporting workflows.",
+    ],
+    tags: ["HTML", "Documentation", "Web Maintenance"],
+  },
 ];
