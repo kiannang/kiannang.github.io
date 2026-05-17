@@ -1,17 +1,5 @@
 export const funProjects = [
   {
-    id: "d3c",
-    title: "D3C - Distributed Driving Data Collective",
-    category: "Research Project",
-    summary:
-      "A distributed smartphone sensing platform for multimodal driving data collection.",
-    details:
-      "Implementing real-time synchronization of video, IMU, GPS, and audio streams with a WebSocket-based ingestion pipeline for large-scale driver behavior datasets.",
-    href: "#experience",
-    ctaLabel: "View Research",
-    external: false,
-  },
-  {
     id: "fyfyoshi-byte",
     title: "Guitar Tuner and Scale",
     category: "Fun Project",
