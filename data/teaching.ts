@@ -2,7 +2,7 @@ export const teaching = [
   {
     title: "Teaching Assistant",
     organization: "University of California, Merced",
-    period: "2025 – Present",
+    period: "2025 - Present",
     courses: ["Algorithm Design and Analysis", "Discrete Mathematics"],
     summary: "Led weekly discussions, held office hours, and graded programming assignments.",
   },

@@ -55,8 +55,8 @@ export function Hero() {
               I work on computer vision, robotic perception, and human-centered AI.
             </p>
             <p className="text-base leading-8 text-muted">
-              Lately, I&apos;ve been especially interested in autonomous driving safety, multimodal sensing, and learning
-              systems in real-world settings.
+              Lately, I&apos;ve been especially interested in autonomous driving safety, multimodal sensing, and multitask
+              representation learning in real-world settings.
             </p>
           </div>
 

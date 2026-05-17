@@ -7,7 +7,7 @@ image: "/images/blog/skyline.jpeg"
 imagePosition: "center"
 ---
 
-There are moments in STEM where the work itself is not the hardest part. The deadlines, the experiments, the papers. Those are hard, but they follow a kind of logic. You learn the rules. You get better. But some challenges don't have a rubric, and they don't show up in your research group's Slack channel.
+There are moments in STEM where the work itself is not the hardest part. The deadlines, the experiments, the papers. Those are hard, but they follow a kind of logic. You learn the rules. You get better. But some challenges don't have a rubric, and they don't show up in the same way everytime.
 
 Sometimes the hardest part is figuring out how to advocate for yourself without being labeled difficult. Sometimes it's trying to stay composed when something genuinely stings. Sometimes it's the quiet, exhausting loop of asking: *Am I overreacting? Am I too sensitive? Should I have spoken up earlier?*
 

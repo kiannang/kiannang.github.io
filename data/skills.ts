@@ -9,11 +9,11 @@ export const skillGroups = [
   },
   {
     title: "Robotics / Systems",
-    items: ["ROS2", "Arduino", "LoRa", "Slurm", "Linux"],
+    items: ["ROS2", "LoRa", "Slurm", "Linux", "Embedded Systems"],
   },
   {
     title: "Frameworks / Tools",
-    items: ["Flask", "Git", "Slack API", "WebSocket"],
+    items: ["Flask", "Git", "WebSocket", "Slack API"],
   },
   {
     title: "Research",

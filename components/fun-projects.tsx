@@ -13,9 +13,9 @@ export function FunProjects() {
       <Container id="projects" className="px-6 py-8 sm:px-8 sm:py-10 lg:px-10">
         <div className="space-y-8">
           <SectionHeader
-            label="/ fun projects"
-            title="Projects I made for the fun of it."
-            description="A small corner for things that are a little more personal, practical, or playful than the rest of my work."
+            label="/ projects"
+            title="Projects"
+            description="Selected research and technical projects from my current work and side experiments."
           />
 
           <div className="grid gap-4">
@@ -39,8 +39,8 @@ export function FunProjects() {
                   <div className="flex items-start">
                     <Link
                       href={project.href}
-                      target="_blank"
-                      rel="noreferrer"
+                      target={project.external ? "_blank" : undefined}
+                      rel={project.external ? "noreferrer" : undefined}
                       className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accentSoft px-4 py-2 text-sm text-foreground hover:border-accent/50"
                     >
                       {project.ctaLabel}

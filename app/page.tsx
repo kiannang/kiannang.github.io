@@ -1,5 +1,6 @@
 import { ContactSection } from "@/components/contact-section";
 import { ExperienceTimeline } from "@/components/experience-timeline";
+import { EducationAwards } from "@/components/education-awards";
 import { Footer } from "@/components/footer";
 import { FunProjects } from "@/components/fun-projects";
 import { Hero } from "@/components/hero";
@@ -25,6 +26,7 @@ export default function HomePage() {
       <Marquee />
 
       <main className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8">
+        <EducationAwards />
         <PublicationCard />
         <ExperienceTimeline />
         <TeachingSection />

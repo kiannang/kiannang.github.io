@@ -2,6 +2,7 @@ const keywords = [
   "Computer Vision",
   "Robotic Perception",
   "Human-Centered AI",
+  "Multitask Representation Learning",
   "Autonomous Driving Safety",
   "Multimodal Sensing",
   "Deep Learning",
@@ -22,7 +23,7 @@ export function Marquee() {
             className="font-mono text-xs uppercase tracking-[0.22em] text-[#f4c9d6]"
           >
             {item}
-            <span className="mx-8 opacity-40">✦</span>
+            <span className="mx-8 opacity-40">*</span>
           </span>
         ))}
       </div>

@@ -7,6 +7,7 @@ export const site = {
     "Computer Vision",
     "Robotic Perception",
     "Human-Centered AI",
+    "Multitask Representation Learning",
     "Autonomous Driving Safety",
     "Multimodal Sensing",
   ],
