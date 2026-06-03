@@ -1,6 +1,6 @@
 # Kianna Ng Portfolio
 
-A portfolio and blog built with Next.js App Router, TypeScript, Tailwind CSS, Framer Motion, and Lucide React.
+A portfolio built with Next.js App Router, TypeScript, Tailwind CSS, Framer Motion, and Lucide React.
 
 ## Stack
 
@@ -14,7 +14,6 @@ A portfolio and blog built with Next.js App Router, TypeScript, Tailwind CSS, Fr
 
 ```text
 app/
-  blog/
   globals.css
   layout.tsx
   page.tsx
@@ -30,7 +29,6 @@ components/
   research-areas.tsx
   section-header.tsx
   selected-work.tsx
-  share-button.tsx
   skills-grid.tsx
   teaching-section.tsx
   ui/
@@ -44,13 +42,12 @@ data/
   skills.ts
   teaching.ts
 lib/
-  posts.ts
   utils.ts
-posts/
-  *.md
 public/
   images/
   resume/
+archive/
+  blog/
 ```
 
 ## Getting Started
@@ -98,5 +95,5 @@ The workflow is defined in `.github/workflows/deploy-pages.yml` and publishes th
 
 - The live CV is served from `public/resume/CV.pdf`.
 - Update links and profile metadata in `data/site.ts`.
-- Blog posts live in `posts/` and are rendered through `lib/posts.ts`.
+- Archived blog files live in `archive/blog/`.
 - Edit the content in the `data/` directory without touching the layout components.
