@@ -6,7 +6,7 @@ export const funProjects = [
     summary:
       "A simple guitar tool for tuning up and exploring scales without overcomplicating things.",
     details:
-      "I made this as a small, practical music project. It gives visitors something a little more personal and playful to click into alongside my research and academic work.",
+      "I made this as a small, practical music project.",
     href: "https://fyfyoshi-byte.github.io/index.html",
     ctaLabel: "Try It Out",
     external: true,
