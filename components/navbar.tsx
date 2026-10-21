@@ -1,30 +1,41 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Linkedin, Menu, X } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "/#home", label: "Home", id: "home" },
   { href: "/#education", label: "Education", id: "education" },
   { href: "/#publications", label: "Publications", id: "publications" },
   { href: "/#experience", label: "Experience", id: "experience" },
-  { href: "/#projects", label: "Projects", id: "projects" },
+  { href: "/#teaching", label: "Teaching", id: "teaching" },
   { href: "/#contact", label: "Contact", id: "contact" },
 ];
 
+const subNavItems = [
+  { href: "/#awards", label: "Awards" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#activities", label: "Activities" },
+  { href: "/resume/CV.pdf", label: "CV" },
+  { href: site.links.github, label: "GitHub", external: true },
+  { href: site.links.linkedin, label: "LinkedIn", external: true },
+  { href: `mailto:${site.email}`, label: "Email" },
+];
+
+const tabBase =
+  "relative -mb-px flex h-[30px] shrink-0 items-center justify-center rounded-t-[7px] border border-b-0 px-4 text-[14px]";
+const tabIdle =
+  "border-[#a98f96] bg-[linear-gradient(to_bottom,#ffffff_0%,#f6eef0_50%,#e9dde1_51%,#f3eaed_100%)] text-foreground hover:bg-[linear-gradient(to_bottom,#ffffff_0%,#fbe6ec_50%,#f3cfda_51%,#f8e3e9_100%)]";
+const tabActive =
+  "border-[#2a1a17] bg-[linear-gradient(to_bottom,#9c7a6f_0%,#6d4c41_48%,#3e2723_52%,#5d4037_100%)] font-bold text-[#fde7ee]";
+
 export function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const sections = navItems
-      .map((item) => document.getElementById(item.id))
+    const sections = ["home", ...navItems.map((item) => item.id)]
+      .map((id) => document.getElementById(id))
       .filter((section): section is HTMLElement => Boolean(section));
 
     const observer = new IntersectionObserver(
@@ -39,141 +50,51 @@ export function Navbar() {
       },
       {
         rootMargin: "-28% 0px -50% 0px",
-        threshold: [0.2, 0.45, 0.7],
+        threshold: [0, 0.2, 0.45, 0.7],
       },
     );
 
     sections.forEach((section) => observer.observe(section));
-
-    const onScroll = () => setScrolled(window.scrollY > 14);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => observer.disconnect();
   }, []);
 
-  const navClass = useMemo(
-    () =>
-      cn(
-        "fixed inset-x-0 top-0 z-50 mx-auto mt-4 flex w-[calc(100%-1rem)] max-w-7xl items-center justify-between rounded-2xl border px-4 py-3 sm:w-[calc(100%-3rem)] sm:px-5",
-        scrolled
-          ? "border-line bg-panelStrong shadow-[0_14px_48px_rgba(0,0,0,0.35)] backdrop-blur-xl"
-          : "border-transparent bg-transparent",
-      ),
-    [scrolled],
-  );
-
   return (
-    <header className={navClass}>
-      <Link href="#home" className="group flex items-center gap-3">
-        <span className="font-display italic text-2xl text-accent">Kianna Ng</span>
-      </Link>
-
-      <nav className="hidden items-center gap-1 md:flex">
+    <header className="pinstripe sticky top-0 z-50 pt-3">
+      <nav aria-label="Sections" className="no-scrollbar mx-auto flex max-w-[800px] items-end gap-[3px] overflow-x-auto px-4">
+        <Link
+          href="/#home"
+          aria-label="Kianna Ng, home"
+          className={cn(tabBase, "w-[58px] px-0 font-display text-[19px] italic", activeSection === "home" ? tabActive : tabIdle)}
+        >
+          KN
+        </Link>
         {navItems.map((item) => (
           <Link
             key={item.id}
             href={item.href}
-            className={cn(
-              "rounded-full px-4 py-2 text-sm text-muted hover:text-foreground",
-              activeSection === item.id && "bg-white/5 text-foreground",
-            )}
+            aria-current={activeSection === item.id ? "true" : undefined}
+            className={cn(tabBase, "sm:min-w-[104px]", activeSection === item.id ? tabActive : tabIdle)}
           >
             {item.label}
           </Link>
         ))}
       </nav>
 
-      <div className="hidden items-center gap-2 md:flex">
-        <Link
-          aria-label="GitHub"
-          href={site.links.github}
-          target="_blank"
-          rel="noreferrer"
-          className="rounded-full border border-line p-2 text-muted hover:border-accent/40 hover:text-foreground"
-        >
-          <Github className="h-4 w-4" />
-        </Link>
-        <Link
-          aria-label="LinkedIn"
-          href={site.links.linkedin}
-          target="_blank"
-          rel="noreferrer"
-          className="rounded-full border border-line p-2 text-muted hover:border-accent/40 hover:text-foreground"
-        >
-          <Linkedin className="h-4 w-4" />
-        </Link>
-        <Link
-          href="/resume/CV.pdf"
-          className="rounded-full border border-accent/30 bg-accentSoft px-4 py-2 text-sm font-medium text-foreground hover:border-accent/60 hover:bg-white/10"
-        >
-          CV
-        </Link>
+      <div className="aqua-bar border-x-0 shadow-[0_2px_4px_rgba(62,39,35,0.12)]">
+        <div className="no-scrollbar mx-auto flex max-w-[800px] items-center justify-between gap-5 overflow-x-auto whitespace-nowrap px-4 py-[3px] text-[12px] sm:px-8">
+          {subNavItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noreferrer" : undefined}
+              className="text-foreground hover:underline"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
       </div>
-
-      <button
-        type="button"
-        aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-        aria-expanded={menuOpen}
-        className="rounded-full border border-line p-2 text-muted md:hidden"
-        onClick={() => setMenuOpen((value) => !value)}
-      >
-        {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-      </button>
-
-      <AnimatePresence initial={false}>
-        {menuOpen && (
-          <motion.div
-            initial={reduceMotion ? false : { opacity: 0, y: -12 }}
-            animate={reduceMotion ? {} : { opacity: 1, y: 0 }}
-            exit={reduceMotion ? {} : { opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-            className="absolute left-0 right-0 top-[calc(100%+0.75rem)] rounded-3xl border border-line bg-panelStrong p-3 shadow-glow md:hidden"
-          >
-            <div className="flex flex-col gap-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className={cn(
-                    "rounded-2xl px-4 py-3 text-sm text-muted hover:bg-white/5 hover:text-foreground",
-                    activeSection === item.id && "bg-white/5 text-foreground",
-                  )}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-            <div className="mt-3 flex items-center gap-2 border-t border-line pt-3">
-              <Link
-                href={site.links.github}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full border border-line p-2 text-muted"
-                aria-label="GitHub"
-              >
-                <Github className="h-4 w-4" />
-              </Link>
-              <Link
-                href={site.links.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full border border-line p-2 text-muted"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-4 w-4" />
-              </Link>
-              <Link href="/resume/CV.pdf" className="ml-auto rounded-full border border-accent/30 bg-accentSoft px-4 py-2 text-sm">
-                CV
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 }

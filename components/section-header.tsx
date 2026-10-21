@@ -1,17 +1,19 @@
+import Link from "next/link";
+
 type SectionHeaderProps = {
-  label: string;
+  // Legacy props from the previous design; no longer rendered.
+  label?: string;
+  description?: string;
   title: string;
-  description: string;
 };
 
-export function SectionHeader({ label, title, description }: SectionHeaderProps) {
+export function SectionHeader({ title }: SectionHeaderProps) {
   return (
-    <div className="max-w-3xl space-y-4">
-      <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">{label}</p>
-      <div className="space-y-3">
-        <h2 className="font-display text-3xl text-foreground sm:text-4xl">{title}</h2>
-        <p className="max-w-2xl text-base leading-7 text-muted sm:text-lg">{description}</p>
-      </div>
+    <div className="mb-5 flex items-end justify-between gap-4 border-b border-line pb-1">
+      <h2 className="font-display text-[34px] leading-none tracking-[-0.03em] text-foreground sm:text-[40px]">{title}</h2>
+      <Link href="/#home" className="mb-1 shrink-0 text-[11px] text-muted hover:text-foreground">
+        Back to top &#9650;
+      </Link>
     </div>
   );
 }

@@ -14,6 +14,14 @@ export const experience = [
     tags: ["Computer Vision", "PyTorch", "Slurm", "Autonomous Driving", "Deep Learning"],
   },
   {
+    title: "Elite Summer School in Robotics and Entrepreneurship",
+    organization: "University of Southern Denmark, Odense, Denmark",
+    period: "Aug 4 - 22, 2026",
+    summary: "",
+    bullets: [],
+    tags: [],
+  },
+  {
     title: "Undergraduate Researcher",
     organization: "IoT4Ag Robotics Lab, UC Merced",
     period: "2023 - 2024",

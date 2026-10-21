@@ -5,12 +5,12 @@
 :root {
   --background: #f4c9d6;
   --foreground: #1c0f0d;
-  --muted: rgba(28, 15, 13, 0.5);
-  --line: rgba(28, 15, 13, 0.15);
-  --panel: rgba(255, 255, 255, 0.45);
-  --panel-strong: rgba(255, 255, 255, 0.7);
+  --muted: rgba(28, 15, 13, 0.62);
+  --line: rgba(62, 39, 35, 0.3);
+  --panel: #ffffff;
+  --panel-strong: #fdf1f4;
   --accent: #3e2723;
-  --accent-soft: rgba(255, 255, 255, 0.6);
+  --accent-soft: #fbe3ea;
 }
 
 * {
@@ -27,48 +27,104 @@ body {
   color: var(--foreground);
 }
 
-/* Warm the hardcoded slate grays for light mode */
-.text-slate-100 { color: rgba(28, 15, 13, 0.95) !important; }
-.text-slate-200 { color: rgba(28, 15, 13, 0.80) !important; }
-.text-slate-300 { color: rgba(28, 15, 13, 0.60) !important; }
-
-/* Boost white overlay panels so they show on the pink background */
-.bg-white\/\[0\.03\] { background-color: rgba(255, 255, 255, 0.45) !important; }
-.bg-white\/5 { background-color: rgba(255, 255, 255, 0.55) !important; }
-.bg-white\/\[0\.02\] { background-color: rgba(255, 255, 255, 0.4) !important; }
-
 ::selection {
   background: rgba(62, 39, 35, 0.18);
   color: #1c0f0d;
 }
 
-a,
-button {
-  transition:
-    color 180ms ease,
-    background-color 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease,
-    opacity 180ms ease;
-}
-
 :focus-visible {
   outline: 2px solid rgba(62, 39, 35, 0.7);
-  outline-offset: 3px;
+  outline-offset: 2px;
+}
+
+@layer components {
+  /* Mac OS X 10.0 pinstripes, tinted pink */
+  .pinstripe {
+    background-color: var(--background);
+    background-image: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.32) 0 2px, transparent 2px 4px);
+  }
+
+  /* Brushed gradient strip, like the 2001 sub-nav and "Hot News" bar */
+  .aqua-bar {
+    background: linear-gradient(to bottom, #ffffff 0%, #f7e4ea 50%, #efd2db 51%, #f6e1e7 100%);
+    border: 1px solid var(--line);
+  }
+
+  .aqua-box {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(62, 39, 35, 0.12);
+  }
+
+  /* Strawberry gel button */
+  .aqua-btn {
+    @apply inline-flex items-center gap-1.5 rounded-full px-4 py-[3px] text-[13px] text-foreground;
+    background: linear-gradient(to bottom, #ffffff 0%, #fbe0e8 45%, #f2b5c7 50%, #f8d3de 100%);
+    border: 1px solid #b07f8c;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 1px 2px rgba(62, 39, 35, 0.25);
+  }
+
+  .aqua-btn:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #f9d4df 45%, #ed9fb6 50%, #f6c6d4 100%);
+  }
+
+  /* Brown gel: primary actions and the active tab */
+  .aqua-btn-primary {
+    @apply inline-flex items-center gap-1.5 rounded-full px-4 py-[3px] text-[13px] font-bold;
+    color: #fde7ee;
+    background: linear-gradient(to bottom, #9c7a6f 0%, #6d4c41 48%, #3e2723 52%, #5d4037 100%);
+    border: 1px solid #2a1a17;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.35),
+      0 1px 2px rgba(62, 39, 35, 0.35);
+  }
+
+  .aqua-btn-primary:hover {
+    background: linear-gradient(to bottom, #a98a80 0%, #7b5a4e 48%, #4e342e 52%, #6d4c41 100%);
+  }
+
+  /* Glossy candy icon tile with a highlight across the top half */
+  .gel-tile {
+    @apply relative inline-flex shrink-0 items-center justify-center overflow-hidden text-accent;
+    border-radius: 14px;
+    background: radial-gradient(ellipse at 50% 120%, #f9d9e2 0%, #f2a9bf 55%, #e98aa7 100%);
+    border: 1px solid #b07f8c;
+    box-shadow: 0 2px 4px rgba(62, 39, 35, 0.25);
+  }
+
+  .gel-tile::before {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 3%;
+    height: 48%;
+    border-radius: 12px 12px 40% 40%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.15));
+  }
+
+  .gel-tile > * {
+    position: relative;
+  }
+
+  .classic-link {
+    @apply text-accent underline underline-offset-2 hover:text-[#8d4a5c];
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }

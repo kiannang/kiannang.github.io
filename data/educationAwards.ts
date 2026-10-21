@@ -10,13 +10,6 @@ export const education = [
     ],
   },
   {
-    institution: "University of Southern Denmark",
-    location: "Odense, Denmark",
-    credential: "Elite Summer School in Robotics and Entrepreneurship",
-    period: "Aug 4 - 22, 2026",
-    details: [],
-  },
-  {
     institution: "University of California, Merced",
     location: "Merced, CA",
     credential: "B.S. Computer Science & Engineering",

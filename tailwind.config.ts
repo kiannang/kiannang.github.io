@@ -18,33 +18,15 @@ const config: Config = {
         accent: "var(--accent)",
         accentSoft: "var(--accent-soft)",
       },
-      boxShadow: {
-        glow: "0 0 0 1px rgba(140, 204, 255, 0.08), 0 24px 80px rgba(7, 16, 28, 0.45)",
-      },
-      borderRadius: {
-        "2xl": "1.5rem",
-        "3xl": "2rem"
-      },
-      backgroundImage: {
-        grid: "linear-gradient(rgba(148,163,184,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.08) 1px, transparent 1px)"
-      },
       fontFamily: {
-        sans: ["var(--font-manrope)"],
-        mono: ["var(--font-mono)"],
-        display: ["var(--font-display)"],
+        // Lucida Grande was the Mac OS X system font in 2001.
+        sans: ['"Lucida Grande"', '"Lucida Sans Unicode"', '"Lucida Sans"', "Geneva", "Verdana", "sans-serif"],
+        // Stand-in for Apple Garamond, the "Think different." era headline face.
+        display: ["var(--font-garamond)", "Garamond", "Georgia", "serif"],
       },
-      animation: {
-        marquee: "marquee 35s linear infinite",
-      },
-      keyframes: {
-        marquee: {
-          from: { transform: "translateX(0%)" },
-          to: { transform: "translateX(-50%)" },
-        },
-      },
-    }
+    },
   },
-  plugins: []
+  plugins: [],
 };
 
 export default config;

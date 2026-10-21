@@ -1,23 +1,11 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Manrope, Playfair_Display } from "next/font/google";
+import { EB_Garamond } from "next/font/google";
 import "./globals.css";
 
-const manrope = Manrope({
+const garamond = EB_Garamond({
   subsets: ["latin"],
-  variable: "--font-manrope",
-});
-
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-garamond",
   weight: ["400", "500"],
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -45,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${manrope.variable} ${mono.variable} ${playfair.variable} bg-background font-sans text-foreground antialiased`}>
+      <body className={`${garamond.variable} pinstripe font-sans text-foreground antialiased`}>
         {children}
       </body>
     </html>
